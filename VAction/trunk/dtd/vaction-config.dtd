@@ -1,0 +1,18 @@
+<!ELEMENT vaction-config (data-source?,global-forwards?,action-mappings?)>
+	<!ELEMENT data-source (driverClass,url,username,password)>
+		<!ELEMENT driverClass (#PCDATA)>
+		<!ELEMENT url (#PCDATA)>
+		<!ELEMENT username (#PCDATA)>
+		<!ELEMENT password (#PCDATA)>
+	<!ELEMENT global-forwards (global-view*)>
+		<!ELEMENT global-view (#PCDATA)>
+			<!ATTLIST global-view name CDATA #REQUIRED>
+	<!ELEMENT default-action (action-class)>
+		<!ELEMENT action-class (#PCDATA)>	
+	<!ELEMENT action-mappings (action*)>
+		<!ELEMENT action (path,action-class,view*)>
+			<!ELEMENT path (#PCDATA)>
+			<!ELEMENT action-class (#PCDATA)>
+			<!ELEMENT view (#PCDATA)>
+				<!ATTLIST view name CDATA #REQUIRED>
+				<!ATTLIST view redirect CDATA "false">

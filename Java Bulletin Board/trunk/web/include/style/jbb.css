@@ -1,0 +1,310 @@
+/***********************************************/
+/* HTML tag styles                             */
+/***********************************************/ 
+
+body
+{
+	font-family: Arial,sans-serif;
+	color: #333333;
+	line-height: 1.166;	
+	margin: 0px;
+	padding: 0px;
+	background-color:#ffffff;
+}
+
+a:link, a:visited, a:hover
+{
+	color: #006699;
+	text-decoration: none;
+}
+
+a:hover
+{
+	text-decoration: underline;
+}
+/* overrides decoration from previous rule for hovered links */
+
+h1, h2, h3, h4, h5, h6
+{
+	font-family: Arial,sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1
+{
+	font-family: Verdana,Arial,sans-serif;
+	font-size: 120%;
+	color: #334d55;
+}
+
+h2
+{
+	font-size: 150%;
+	color:#900000;
+}
+
+h3
+{
+	font-size: 100%;
+	color: #334d55;
+}
+
+h4
+{
+	font-size: 100%;
+	font-weight: normal;
+	color: #333333;
+}
+
+h5
+{
+	font-size: 100%;
+	color: #334d55;
+}
+
+ul
+{
+	list-style-type: square;
+}
+
+ul ul
+{
+	list-style-type: disc;
+}
+
+ul ul ul
+{
+	list-style-type: none;
+}
+
+img
+{
+	border:none;
+}
+
+/***********************************************/
+/* Layout Divs                                 */
+/***********************************************/
+
+#masthead
+{
+	margin: 0;
+	padding: 10px 0px;
+	border-bottom: 1px solid #cccccc;
+	width: 100%;
+}
+
+#navBar
+{
+	margin: 0 82% 0 0;
+	padding: 0px;
+	background-color: #eeeeee;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+#content
+{
+  float:right;
+	width: 78%;
+	margin: 0;
+	padding: 0 3% 0 0;
+}
+
+/***********************************************/
+/*Component Divs                               */
+/***********************************************/
+
+#siteName
+{
+	margin: 0px;
+	padding: 0px 0px 10px 10px;
+}
+
+
+/*************** #pageName styles **************/
+
+#pageName
+{
+	padding: 10px 10px 10px 10px;
+}
+
+/************* #globalNav styles **************/
+
+#globalNav
+{
+	color: #cccccc;
+	padding: 0px 0px 0px 10px;
+	white-space: nowrap;
+}
+/* 'nowrap' prevents links from line-wrapping if there are too many to fit in one line
+   this will force a horizontal scrollbar if there isn't enough room for all links
+   remove rule or change value to 'normal' if you want the links to line-wrap */
+
+#globalNav img
+{
+ display: block;
+}
+
+#globalNav a
+{
+	font-size: 90%;
+	padding: 0px 4px 0px 0px; 
+}
+
+/************** .story styles *****************/
+
+.story
+{
+	clear: both;
+	padding: 10px 0px 0px 10px;
+	font-size: 80%;
+}
+
+.story p
+{
+	padding: 0px 0px 0px 0px;
+}
+
+.story h3
+{
+	padding: 4px 4px 4px 6px;
+	border: 1px solid #aaaaaa;
+	color:#900000;
+	background-color:#eeeeee;
+	font-weight:normal;
+	font-size:125%;
+/*	font-size:large;*/
+}
+
+.story ul
+{
+	list-style-type:disc;
+	margin-left:15px;
+	margin-top:2px;
+	margin-bottom:0px;
+	padding:0;
+}
+
+
+/*********** #navBar link styles ***********/
+
+#navBar h3 a
+{
+	color:#900000;
+	text-decoration:none;
+}
+
+#navBar ul a:link, #navBar ul a:visited
+{
+	display: block;
+}
+
+#navBar ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* hack to fix IE/Win's broken rendering of block-level anchors in lists */
+#navBar li
+{
+	border-bottom: 1px solid #EEE;
+}
+
+/* fix for browsers that don't need the hack */
+html>body #navBar li
+{
+	border-bottom: none;
+}
+
+/*********** .relatedLinks styles ***********/
+
+.relatedLinks
+{
+	margin: 0px;
+	padding: 0px 0px 10px 10px;
+	font-size: 90%;
+}
+
+.relatedLinks h3
+{
+	padding: 10px 0px 10px 0px;
+	color:#900000;
+}
+
+/************** #headlines styles **************/
+
+#headlines
+{
+	margin: 0px;
+	padding: 10px 0px 20px 10px;
+	font-size: 80%;
+}
+
+#headlines p
+{
+	padding: 5px 0px 5px 0px;
+}
+
+
+/***************************************************************/
+
+#sectionLinks{
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	border-top: 1px solid #cccccc;
+	font-size: 90%;
+}
+
+#sectionLinks a:link{
+	padding: 2px 0px 2px 10px;
+	border-top: 1px solid #cccccc;
+	width: 100%;
+  voice-family: "\"}\""; 
+  voice-family:inherit;
+	width: auto;
+}
+
+#sectionLinks a:visited{
+	border-top: 1px solid #cccccc;
+	padding: 2px 0px 2px 10px;
+}
+
+.postForm
+{
+	padding-right: 10px;
+	margin-top: 8px;
+	padding-left: 10px;
+	padding-bottom: 8px;
+	margin-left: 10px;
+	padding-top: 8px;
+	background-color: #f4f4f7;
+}
+
+.strip1
+{
+	background-color:#fafafa;
+}
+
+.strip2
+{
+	background-color:#f0f0f0;
+}
+
+.postdate
+{
+	font-size:x-small;
+}
+
+.showSwitch
+{
+	display: block;
+}
+.hideSwitch
+{
+	display: none;
+}

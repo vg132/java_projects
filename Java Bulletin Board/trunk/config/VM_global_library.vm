@@ -1,0 +1,61 @@
+## Display all queued Struts errors
+#macro (errorMarkup)
+	#if ($errors.exist())
+		<p>
+			<ul>
+			#foreach ($e in $errors.all)
+				$e
+			#end
+			</ul>
+		</p>
+	#end
+#end
+
+## Display all queued Struts errors for a particular property
+#macro (errorMarkupForProperty $property)
+    #if ($errors.exist($property))
+		<ul>
+		#foreach ($er in $errors.get($property))
+			$er
+		#end
+		</ul>
+	#end
+#end
+
+## Display all queued Struts errors
+#macro (messageMarkup)
+	#if ($messages.exist())
+		<ul>
+		#foreach ($m in $messages.all)
+			$m
+		#end
+		</ul>
+	#end
+#end
+
+## Display all queued Struts action messages for a particular property
+#macro (messageMarkupForProperty $property)
+	#if ($messages.exist($property))
+		<ul>
+		#foreach ($m in $messages.get($property))
+			$m
+		#end
+		</ul>
+	#end
+#end
+
+## "Multibox" control
+## $name The control name shared by the checkboxes
+## $labels The master list of checkbox labels 
+## $values The list of checkboxes that have been set (subset of $labels)
+## :TODO: Test in portal application
+#macro (multibox $name $labels $values)
+  #foreach ($n in $labels)<input type="checkbox" name="$name" value="$n" 
+	#foreach ($v in $values)
+		#if($v==$n)
+			checked="checked"
+		#end
+	#end
+	/>$n<br>
+  #end
+#end

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - Inbox</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			<h2 id="pageName">PM - Inbox</h2>
+			<div class="story">
+				<h3>You messages</h3>
+				<br/>
+				<form method="post" action="${text.baseurl}pm/msgdelete.do">
+					<input type="hidden" name="whattodo" value="delete"/>
+					<!-- FIXXXXX!!!! TEMP!!!! -->
+    				<table width="100%">
+    				<tr class="strip2">
+    					<th width="1%">
+    					</th>
+    					<th align="left" width="50%">
+    						Title
+    					</th>
+    					<th align="left" width="30%">
+    						From
+    					</th>
+    					<th align="left" width="28%">
+    						Date
+    					</th>
+    				</tr>
+    				#set($even=false)
+    				#foreach($item in $mes)
+    					#if($even)
+    						<tr class="strip2">
+    					#else
+    						<tr class="strip1">
+    					#end
+    						<td valign="center">
+    							<input type="checkbox" name="messageIds" value="${item.messageId}"/>
+    						</td>
+        						<td>
+        							<a href="pm/read.do?messageId=${item.messageId}">${item.title}</a>
+        						</td>
+        						<td>
+        							${item.senderName}
+        						</td>
+        						<td>
+        							${item.postDate}
+        						</td>
+    						</tr>
+    				#end
+    				#if($mes.size()==0)
+    					<tr>
+    						<td colspan="4" align="center"><i>No messages</i></td>
+    					</tr>
+    				#end
+    				</table>
+					<table>
+						<tr>
+							<td><input type="submit" value="Delete"/></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/vgsoftware.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

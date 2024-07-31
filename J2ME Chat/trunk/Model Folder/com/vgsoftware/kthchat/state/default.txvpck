@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<nodeSet  version="1.1">
+	<view uin="V574ng9e2jlathv-n26kf6">
+		<property name="$defaultDiagram" value="true"/>
+		<property name="$metaclass" value="Package Diagram"/>
+		<reference referencedUin="jdt:e_class:src:com.vgsoftware.kthchat.state.ConnectState">
+			<property name="bounds" value="26,10,147,264"/>
+			<reference referencedUin="jdt:l_ast:src:com.vgsoftware.kthchat.state.ConnectState:instance">
+				<property name="sourceAnchor" value="124,274"/>
+				<property name="targetAnchor" value="298,405"/>
+				<property name="bendpoints" value="298,376"/>
+				<property name="smooth_bendpoints" value="298,376"/>
+			</reference>
+			<reference referencedUin="jdt:l_gnt:src:com.vgsoftware.kthchat.state.ConnectState:AChatState">
+				<property name="sourceAnchor" value="75,274"/>
+				<property name="targetAnchor" value="288,405"/>
+				<property name="bendpoints" value="288,387"/>
+				<property name="smooth_bendpoints" value="288,387"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:com.vgsoftware.kthchat.state.ChatState">
+			<property name="bounds" value="526,23,145,238"/>
+			<reference referencedUin="jdt:l_gnt:src:com.vgsoftware.kthchat.state.ChatState:AChatState">
+				<property name="sourceAnchor" value="574,261"/>
+				<property name="targetAnchor" value="395,405"/>
+			</reference>
+			<reference referencedUin="jdt:l_ast:src:com.vgsoftware.kthchat.state.ChatState:instance">
+				<property name="sourceAnchor" value="622,261"/>
+				<property name="targetAnchor" value="408,405"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:com.vgsoftware.kthchat.state.AChatState">
+			<property name="bounds" value="278,405,143,121"/>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:com.vgsoftware.kthchat.state.LayoutState">
+			<property name="bounds" value="358,42,148,199"/>
+			<reference referencedUin="jdt:l_ast:src:com.vgsoftware.kthchat.state.LayoutState:instance">
+				<property name="sourceAnchor" value="382,241"/>
+				<property name="targetAnchor" value="382,405"/>
+			</reference>
+			<reference referencedUin="jdt:l_gnt:src:com.vgsoftware.kthchat.state.LayoutState:AChatState">
+				<property name="sourceAnchor" value="370,241"/>
+				<property name="targetAnchor" value="370,405"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:com.vgsoftware.kthchat.state.ConnectionState">
+			<property name="bounds" value="10,334,148,264"/>
+			<reference referencedUin="jdt:l_ast:src:com.vgsoftware.kthchat.state.ConnectionState:instance">
+				<property name="sourceAnchor" value="158,485"/>
+				<property name="targetAnchor" value="278,485"/>
+			</reference>
+			<reference referencedUin="jdt:l_gnt:src:com.vgsoftware.kthchat.state.ConnectionState:AChatState">
+				<property name="sourceAnchor" value="158,445"/>
+				<property name="targetAnchor" value="278,445"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:com.vgsoftware.kthchat.state.MessageState">
+			<property name="bounds" value="193,42,145,199"/>
+			<reference referencedUin="jdt:l_ast:src:com.vgsoftware.kthchat.state.MessageState:instance">
+				<property name="sourceAnchor" value="318,241"/>
+				<property name="targetAnchor" value="318,405"/>
+			</reference>
+			<reference referencedUin="jdt:l_gnt:src:com.vgsoftware.kthchat.state.MessageState:AChatState">
+				<property name="sourceAnchor" value="308,241"/>
+				<property name="targetAnchor" value="308,405"/>
+			</reference>
+		</reference>
+	</view>
+</nodeSet>

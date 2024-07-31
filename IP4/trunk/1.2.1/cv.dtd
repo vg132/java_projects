@@ -1,0 +1,45 @@
+<!ELEMENT cv (contact,educations,language-skills,references)>
+	<!ATTLIST cv xmlns:private CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/private">
+	<!ATTLIST cv xmlns:company CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/company">
+	<!ELEMENT contact (private:name,private:address,private:postcode,private:country?,private:phone*)>
+		<!ELEMENT private:name (#PCDATA)>
+			<!ATTLIST name xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/private">
+		<!ELEMENT private:address (#PCDATA)>
+			<!ATTLIST address xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/private">
+		<!ELEMENT private:postcode (#PCDATA)>
+			<!ATTLIST postcode xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/private">
+		<!ELEMENT private:country (#PCDATA)>
+			<!ATTLIST country xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/private">
+		<!ELEMENT private:phone (#PCDATA)>
+			<!ATTLIST private:phone name CDATA #IMPLIED>
+			<!ATTLIST phone xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/private">
+		<!ATTLIST contact xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/private">
+	<!ELEMENT educations (education*)>
+		<!ELEMENT education (#PCDATA)>
+			<!ATTLIST education start CDATA #REQUIRED>
+			<!ATTLIST education end CDATA #IMPLIED>
+	<!ELEMENT language-skills (language*)>
+		<!ELEMENT language (#PCDATA)>
+			<!ATTLIST language level CDATA #REQUIRED>
+	<!ELEMENT references (company:reference*)>
+		<!ELEMENT company:reference (company:company,company:logo?,company:name,company:position?,company:address?,company:postcode?,company:country?,company:phone*)>
+			<!ELEMENT company:company (#PCDATA)>
+				<!ATTLIST company xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/company">
+			<!ELEMENT company:logo (#PCDATA)>
+				<!ATTLIST logo xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/company">
+			<!ELEMENT company:name (#PCDATA)>
+				<!ATTLIST name xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/company">
+			<!ELEMENT company:position (#PCDATA)>
+				<!ATTLIST position xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/company">
+			<!ELEMENT company:address (#PCDATA)>
+				<!ATTLIST address xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/company">
+			<!ELEMENT company:postcode (#PCDATA)>
+				<!ATTLIST postcode xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/company">
+			<!ELEMENT company:country (#PCDATA)>
+				<!ATTLIST country xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/company">
+			<!ELEMENT company:phone (#PCDATA)>
+				<!ATTLIST company:phone name CDATA #IMPLIED>
+				<!ATTLIST phone xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/company">
+			<!ATTLIST company xmlns CDATA #FIXED "http://www.vgsoftware.com/xmlnamespace/company">
+	<!ENTITY myName "Viktor Gars">
+	<!ENTITY logo SYSTEM "./logo.png">

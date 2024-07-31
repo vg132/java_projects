@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			<h2 id="pageName">GT4 Championship</h2>
+			<div class="story">
+				<h3>Time History</h3>
+				<br/>
+   			<table cellspacing="5" cellpadding="2">
+   				<tr>
+   					<td width="20"><b>Nr</b></td>
+   					<td width="70"><b>Time</b></td>
+   					<td width="70"><b>Diff</b></td>
+   					<td width="100"><b>Control Type</b></td>
+   					<td width="70"><b>Posted</b></td>
+					#if((${driverid}==${user.id})&&(${eventActive}=="active"))
+						<td width="70"><b>Delete</b></td>
+					#end
+   				</tr>
+   				#set($best=0)
+    			#foreach($time in $times)
+    				#if($best==0)
+    					#set($best=${time.time})
+    				#end
+						#if((${velocityCount}%2)==0)
+							<tr class="strip2">
+						#else
+							<tr class="strip1">
+						#end
+								<td>${velocityCount}</td>
+								<td>${time.textTime}</td>
+								<td>${time.getDiff($best)}</td>
+								<td>${time.controlTypeName}</td>
+								<td>${time.getAdded().toString().substring(0,16)}</td>
+						#if((${driverid}==${user.id})&&(${eventActive}=="active"))
+								<td><a href="section/gt4/DeleteTime.do?time=${time.id}&event=${time.eventId}">Delete</a></td>
+						#end
+							</tr>
+					#end
+				</table>
+			</div>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/gt4.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

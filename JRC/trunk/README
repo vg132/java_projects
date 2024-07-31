@@ -1,0 +1,5 @@
+JRC - VG Software 2005
+
+JRC, Java Relay Chat, a chat server and client built with  a custom protocol for a
+java networking course in school.
+The addressbook requires JDom and some of the GUI is updated with Java 5 methods.

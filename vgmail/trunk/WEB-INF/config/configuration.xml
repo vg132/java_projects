@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration SYSTEM "configuration.dtd">
+<configuration>
+	<description>Webmail Server configuration for vgsoftware</description>
+	<mta>
+		<!--
+			Setup your mail transfer agent settings here
+		-->
+		<protocol>smtp</protocol>
+		<host>mail.vgsoftware.com</host>
+		<port>-1</port>
+	</mta>
+	<postoffice>
+		<!--setup your imap server settings here-->
+		<protocol>imap</protocol>
+		<host>mail.vgsoftware.com</host>
+		<port>-1</port>
+		<!--
+			The root (mailbox) folder on the imap server, INBOX on cyrus imap servers.
+		-->
+		<root-folder>INBOX</root-folder>
+		<!--
+			This will be added to form the address, username@address-domain
+			If left empty only the username will be set as the from address.
+		-->
+		<address-domain>vgsoftware.com</address-domain>
+	</postoffice>
+	<user-configuration>
+		<!--
+			Configuration reader class, must implement the IConfigReader interface.
+		-->
+		<configuration-reader>com.vgsoftware.vgmail.readers.XMLConfigReader</configuration-reader>
+		<!--
+			Path to the config file for the reader, relative to the WEB-INF/config folder
+		-->
+		<reader-configuration-file>xmlreader.xml</reader-configuration-file>
+	</user-configuration>
+	<template>
+		<directory>z:/dev/dsv/java/vgmail/template/</directory>
+	</template>
+	<attachment>
+		<!--
+			This is the directory where all uploaded attachments will be saved before
+			the mail is sent.
+		-->
+		<upload-directory>c:/temp/vgmail</upload-directory>
+		<!--
+			This is the interval in minutes that the cleaner checks the
+			upload direcotry for old files and delete them.
+		-->
+		<clean-interval>10</clean-interval>
+		<!--
+			This is the maximum age in minutes of the files in the upload directory.
+			If the files are older then thay get deleted by the clear
+		-->
+		<maximum-file-age>400</maximum-file-age>
+		<!--
+			The maximum upload size for one mail in Mb.
+		-->
+		<maximum-size>3</maximum-size>
+	</attachment>
+</configuration>

@@ -1,0 +1,140 @@
+<vaction-config>
+	<data-source>
+		<driverClass>com.mysql.jdbc.Driver</driverClass>
+		<url>jdbc:mysql://zelda.vgsoftware.com/shop</url>
+		<username>dev</username>
+		<password>ved</password>
+	</data-source>
+	<global-forwards>
+		<global-view name="login">/WEB-INF/template/login.jsp</global-view>
+	</global-forwards>
+	<default-action>
+		<action-class>com.vgsoftware.shop.action.DefaultAction</action-class>
+	</default-action>
+	<action-mappings>
+		<action>
+			<path>/sendorder.ijs</path>
+			<action-class>com.vgsoftware.shop.action.OrderAction</action-class>
+			<view name="success">/index.ijs</view>
+			<view name="failure">/checkout.ijs</view>
+		</action>
+		<action>
+			<path>/checkout.ijs</path>
+			<action-class>com.vgsoftware.shop.action.CheckoutAction</action-class>
+			<view name="success">/WEB-INF/template/checkout.jsp</view>
+			<view name="failure">/cart.ijs</view>
+		</action>
+		<action>
+			<path>/updateaccount.ijs</path>
+			<action-class>com.vgsoftware.shop.action.UpdateAccountAction</action-class>
+			<view name="failure">/WEB-INF/template/update.jsp</view>
+			<view name="success">/index.ijs</view>
+		</action>
+		<action>
+			<path>/viewaccount.ijs</path>
+			<action-class>com.vgsoftware.shop.action.PreRegisterAction</action-class>
+			<view name="success">/WEB-INF/template/update.jsp</view>
+			<view name="failure">/index.ijs</view>
+		</action>
+		<action>
+			<path>/cart.ijs</path>
+			<action-class>com.vgsoftware.shop.action.ViewCartAction</action-class>
+			<view name="success">/WEB-INF/template/cart.jsp</view>
+			<view name="failure">/index.ijs</view>
+		</action>
+		<action>
+			<path>/updatecart.ijs</path>
+			<action-class>com.vgsoftware.shop.action.UpdateCartAction</action-class>
+			<view name="success">/cart.ijs</view>
+			<view name="failure">/index.ijs</view>
+		</action>
+		<action>
+			<path>/addcart.ijs</path>
+			<action-class>com.vgsoftware.shop.action.AddCartAction</action-class>
+			<view name="success">/cart.ijs</view>
+			<view name="failure">/index.ijs</view>
+		</action>
+		<action>
+			<path>/register.ijs</path>
+			<action-class>com.vgsoftware.shop.action.RegisterAction</action-class>
+			<view name="success">/index.ijs</view>
+			<view name="failure">/WEB-INF/template/register.jsp</view>
+		</action>
+		<action>
+			<path>/preregister.ijs</path>
+			<action-class>com.vgsoftware.shop.action.PreRegisterAction</action-class>
+			<view name="success">/WEB-INF/template/register.jsp</view>
+			<view name="failure">/index.ijs</view>
+		</action>
+		<action>
+			<path>/vieworder.ijs</path>
+			<action-class>com.vgsoftware.shop.action.ViewOrderAction</action-class>
+			<view name="success">/WEB-INF/template/vieworder.jsp</view>
+			<view name="failure">/orders.ijs</view>
+		</action>
+		<action>
+			<path>/orders.ijs</path>
+			<action-class>com.vgsoftware.shop.action.OrdersAction</action-class>
+			<view name="success">/WEB-INF/template/orders.jsp</view>
+			<view name="failure">/index.ijs</view>
+		</action>
+		<action>
+			<path>/logout.ijs</path>
+			<action-class>com.vgsoftware.shop.action.LogoutAction</action-class>
+			<view name="success" redirect="true">/index.ijs</view>
+		</action>
+		<action>
+			<path>/account.ijs</path>
+			<action-class>com.vgsoftware.shop.action.AccountAction</action-class>
+			<view name="success">/WEB-INF/template/account.jsp</view>
+			<view name="failure">/index.ijs</view>
+		</action>
+		<action>
+			<path>/removewishlist.ijs</path>
+			<action-class>com.vgsoftware.shop.action.RemoveWishListAction</action-class>
+			<view name="success">/wishlist.ijs</view>
+			<view name="failure">/index.ijs</view>
+		</action>
+		<action>
+			<path>/addwishlist.ijs</path>
+			<action-class>com.vgsoftware.shop.action.AddWishListAction</action-class>
+			<view name="success">/wishlist.ijs</view>
+			<view name="failure">/index.ijs</view>
+		</action>		
+		<action>
+			<path>/wishlist.ijs</path>
+			<action-class>com.vgsoftware.shop.action.ViewWishListAction</action-class>
+			<view name="success">/WEB-INF/template/productlist.jsp</view>
+			<view name="failure">/index.ijs</view>
+		</action>
+		<action>
+			<path>/search.ijs</path>
+			<action-class>com.vgsoftware.shop.action.SearchAction</action-class>
+			<view name="success">/WEB-INF/template/productlist.jsp</view>
+			<view name="failure">/WEB-INF/template/index.jsp</view>			
+		</action>
+		<action>
+			<path>/login.ijs</path>
+			<action-class>com.vgsoftware.shop.action.LoginAction</action-class>
+			<view name="success">/index.ijs</view>
+			<view name="failure">/WEB-INF/template/login.jsp</view>
+		</action>
+		<action>
+			<path>/index.ijs</path>
+			<action-class>com.vgsoftware.shop.action.IndexAction</action-class>
+			<view name="success">/WEB-INF/template/index.jsp</view>
+		</action>
+		<action>
+			<path>/productlist.ijs</path>
+			<action-class>com.vgsoftware.shop.action.ProductListAction</action-class>
+			<view name="success">/WEB-INF/template/productlist.jsp</view>
+			<view name="failure">/WEB-INF/template/index.jsp</view>
+		</action>
+		<action>
+			<path>/productinfo.ijs</path>
+			<action-class>com.vgsoftware.shop.action.ProductInfoAction</action-class>
+			<view name="success">/WEB-INF/template/productinfo.jsp</view>
+			<view name="failure">/WEB-INF/template/index.jsp</view>
+		</action>
+	</action-mappings>
+</vaction-config>

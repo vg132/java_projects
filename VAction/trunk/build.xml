@@ -1,0 +1,47 @@
+<project name="VAction" default="compile" basedir=".">
+	<description>
+		Ant (http://ant.apache.org/) build script for Vaction.
+	</description>
+
+	<!-- set global properties for this build -->
+	<property name="project" value="vaction"/>
+	<property name="src" location="src"/>
+	<property name="build" location="build"/>
+	<property name="classes" location="${build}/classes"/>
+	<property name="doc" location="${build}/doc" />
+	<property name="lib" location="lib"/>
+	<property name="dist" location="${build}/dist"/>
+	<property name="tomcat-lib" location="d:/java/jakarta-tomcat-5.5.7/common/lib"/>
+	<property name="classpath" value="${tomcat-lib}/servlet-api.jar:${lib}/commons-collections-3.1.jar:${lib}/commons-dbcp-1.2.1.jar"/>
+
+	<target name="init">
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="compile" description="Compiles all source files" depends="init">
+		<mkdir dir="${classes}"/>
+		<javac classpath="${classpath}"
+			srcdir="${src}"
+			destdir="${classes}"
+			deprecation="on"
+		/>
+	</target>
+
+	<target name="dist" description="Copies all lib, class, config and web files into a webapp directory structure." depends="compile">
+		<mkdir dir="${dist}" />
+		<jar jarfile="${dist}/${project}.jar" basedir="${classes}" />
+	</target>
+
+	<target name="clean" description="Clears all old builds" depends="init">
+		<delete dir="${build}"/>
+	</target>
+
+	<target name="javadoc" description="Creates JavaDoc for this project." depends="init">
+		<mkdir dir="${doc}"/>
+		<javadoc sourcepath="${src}"
+			destdir="${doc}"
+			packagenames="com.vgsoftware.*"
+			classpath="${classpath}"
+		/>
+	</target>
+</project>

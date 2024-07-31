@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>$text.title</title>
+        <link rel="stylesheet" href="$text.style" type="text/css" />
+    </head>
+	<body>
+		<h2 id="pageName">$topic.title</h2>
+		<div class="story">
+			<h3>$text.newreply</h3>
+			#errorMarkup()
+			<p>
+				<form method="post" action="addreply.do">
+					<input type="hidden" name="forumId" value="$forum.id"/>
+					<input type="hidden" name="topicId" value="$topic.id"/>
+					<table cellspacing="5" cellpadding="2" width="90%">
+						<tr>
+							<td valign="top">
+								$text.yourpost
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<textarea name="content" cols="45" rows="15">$!{content}</textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="submit" value="$text.addreply"/>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</p>
+		</div>
+	</body>
+</html>

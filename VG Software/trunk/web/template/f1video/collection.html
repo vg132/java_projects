@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - F1 Video</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			#if($user)
+				<h2 id="pageName">F1 Video - <a href="mailto:${email}">${title}s</a> Video Collection</h2>
+			#else
+				<h2 id="pageName">F1 Video - ${title}s Video Collection</h2>
+			#end
+			<div class="story">
+				<h3>Race Videos</h3>
+				<br/>
+				#if(${race_videos.size()}>0)
+				<table>
+					<tr>
+						<td width="15"><b>Nr</b></td>
+						<td width="110"><b>Country</b></td>
+						<td width="120"><b>Track</b></td>
+						<td width="90"><b>Race Type</b></td>
+						<td width="50"><b>Length</b></td>
+						<td width="70"><b>Date</b></td>
+						<td width="90"><b>Channel</b></td>
+						<td width="60"><b>Media</b></td>
+						<td width="70"><b>Quality</b></td>
+						#if($own)
+							<td><b>Tools</b></td>
+						#end
+					</tr>
+    			#foreach($video in $race_videos)
+						#if((${velocityCount}%2)==0)
+							<tr class="strip2">
+						#else
+							<tr class="strip1">
+						#end
+								<td>${velocityCount}</td>
+								<td><a href="/section/f1video/ViewVideo.do?videoId=${video.id}" title="Country: ${video.country}
+Track: ${video.track}
+Laps: ${video.laps}
+Length: ${video.length}
+Date: ${video.year}-${video.month}-${video.day}
+Type: ${video.racetype}
+Media: ${video.media}
+Quality: ${video.quality}
+Channel: ${video.channel}
+Video Id: ${video.videoid}
+Comment: ${video.comment}">${video.country}</a></td>
+								<td>${video.track}</td>
+								<td>${video.racetype}</td>
+								<td>${video.length}</td>
+								<td>${video.year}-${video.month}-${video.day}</td>
+								<td>${video.channel}</td>
+								<td>${video.media}</td>
+								<td>${video.quality}</td>
+								#if($!own)
+									<td><a href="/section/f1video/PreEditVideo.do?videoId=${video.id}"><img src="/images/f1video/edit.gif" /></a> | <a href="/section/f1video/Delete.do?videoId=${video.id}"><img src="/images/f1video/delete.gif" /></a></td>
+								#end
+							</tr>
+					#end
+				</table>
+				#else
+					<b>No race videos found</b>
+				#end
+			</div>
+			<div class="story">
+				<h3>Other Videos</h3>
+				<br/>
+				#if(${other_videos.size()}>0)
+				<table>
+					<tr>
+						<td width="15"><b>Nr</b></td>
+						<td width="150"><b>Title</b></td>
+						<td width="110"><b>Racetype</b></td>
+						<td width="50"><b>Length</b></td>
+						<td width="50"><b>Year</b></td>
+						<td width="70"><b>Media</b></td>
+						<td width="70"><b>Quality</b></td>
+						#if($!own)
+							<td><b>Tools</b></td>
+						#end
+					</tr>
+    			#foreach($video in $other_videos)
+						#if((${velocityCount}%2)==0)
+							<tr class="strip2">
+						#else
+							<tr class="strip1">
+						#end
+								<td>${velocityCount}</td>
+								<td><a href="/section/f1video/ViewVideo.do?videoId=${video.id}" title="Title: ${video.title}
+Type: ${video.racetype}
+Length: ${video.length}
+Year: ${video.year}
+Media: ${video.media}
+Quality: ${video.quality}
+Channel: ${video.channel}
+Video Id: ${video.videoid}
+Comment: ${video.comment}">${video.title}</a></td>
+								<td>${video.racetype}</td>
+								<td>${video.length}</td>
+								<td>${video.year}</td>
+								<td>${video.media}</td>
+								<td>${video.quality}</td>
+								#if($!own)
+									<td><a href="/section/f1video/PreEditVideo.do?videoId=${video.id}"><img src="/images/f1video/edit.gif" /></a> | <a href="/section/f1video/Delete.do?videoId=${video.id}"><img src="/images/f1video/delete.gif" /></a></td>
+								#end
+							</tr>
+					#end
+				</table>
+				#else
+					<b>No other videos found</b>
+				#end
+			</div>
+			<p>
+				&nbsp;
+			</p>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/f1video.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

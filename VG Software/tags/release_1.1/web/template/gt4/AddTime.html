@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			<h2 id="pageName">GT4 Championship</h2>
+			<div class="story">
+				<h3>Add Time</h3>
+				<p>
+					#errorMarkup()
+				</p>
+				<form action="/section/gt4/AddTime.do" method="post">
+					<table>
+						<tr>
+							<td>
+								Event:
+							</td>
+							<td>
+								<select name="eventId">
+									#foreach($event in $events)
+										<option value="${event.id}">${event.track}</option>
+									#end
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Your time (Use format x:xx.xxx): 
+							</td>
+							<td>
+								<input type="text" name="time" value="$!{time}"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Controller type:
+							</td>
+							<td>
+								<select name="controlType">
+									#foreach($controller in $controllers)
+										<option value="${controller.id}">${controller.name}</option>
+									#end
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="right">
+								<input type="submit" value="Add Time"/>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/gt4.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

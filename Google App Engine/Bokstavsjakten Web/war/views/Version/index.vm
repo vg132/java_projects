@@ -1,0 +1,10 @@
+<html>
+	<head>
+		<title>Bokstavsjakten</title>
+	</head>
+	<body>
+		<h1>Application information</h1>
+		Application date: $date<br />
+		Application version: $version
+	</body>
+<html>

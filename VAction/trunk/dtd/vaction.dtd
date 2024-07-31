@@ -1,0 +1,2 @@
+<!ELEMENT vaction-config (data-source?,global-forwards?,action-mappings?)>
+	<!ELEMENT data-source ()>

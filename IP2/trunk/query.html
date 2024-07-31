@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Send querys to the servlet!</title>
+		<link href="style/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div class="head">
+			Task 1e: Query Sender/Getter
+		</div>
+		<hr/>
+		<div>
+		Link 1: <a href="/dsv/servlet/ass1e?Kalle=Anka&Anka=Planka">Simple URL Query String (GET)</a>
+		</div>
+		<hr/>
+		<form method="get" action="/dsv/servlet/ass1e">
+			<table>
+				<tr>
+					<td>
+						Name:
+					</td>
+					<td>
+						<input type="text" name="name" value=""/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Email:
+					</td>
+					<td>
+						<input type="text" name="email" value=""/>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" name="send" value="Send Data to Server with GET"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<hr/>
+		<form method="post" action="/dsv/servlet/ass1e">
+			<table>
+				<tr>
+					<td>
+						Name:
+					</td>
+					<td>
+						<input type="text" name="name" value=""/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Email:
+					</td>
+					<td>
+						<input type="text" name="email" value=""/>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="radio" name="spam" CHECKED/> Yes, I want to recive spam to this email address.<br/>
+						<input type="checkbox" name="agree" CHECKED/> I agree to everything!
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" name="send" value="Send Data to Server with POST"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

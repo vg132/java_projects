@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - Missile Command</title>
+		<base href="$text.baseurl"/>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<div id="content">
+			<h2 id="pageName">Missile Command</h2>
+			<div class="story">
+				<h3>Description</h3>
+				<p>
+					Defend your bases on the bottom of the game screen by shooting down the missiles attacing your
+					bases. You shoot down the missiles by clicking with the mouse on the game screen. At the top of
+					the screen you can see how many missiles there are left and how many bombs you have left.
+				</p>
+			</div>
+			<div class="story">
+				<h3>The Game</h3>
+				<p>
+					<object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" height="400" width="400" > 
+						<param name="code" value="Game" />
+						<param name="archive" value="missile.jar" />
+						<!--[if !IE]> -->
+							<object classid="java:Game.class" archive="missile.jar" height="400" width="400" >                    
+							</object>
+						<!-- <![endif]-->
+					</object>
+				</p>
+			</div>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/games.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<display-name />
+	<description />
+
+	<data-sources>
+		<data-source type="org.apache.commons.dbcp.BasicDataSource">
+			<set-property property="driverClassName" value="com.mysql.jdbc.Driver" />
+			<set-property property="url" value="jdbc:mysql://compaq.vgsoftware.com/jbb" />
+			<set-property property="username" value="dev" />
+			<set-property property="password" value="ved" />
+		</data-source>
+	</data-sources>
+
+	<form-beans>
+		<form-bean name="loginForm" type="com.vgsoftware.jbb.form.LoginForm" />
+		<form-bean name="replyForm" type="com.vgsoftware.jbb.form.ReplyForm" />
+		<form-bean name="topicForm" type="com.vgsoftware.jbb.form.TopicForm" />
+		<form-bean name="registerForm" type="com.vgsoftware.jbb.form.RegisterForm" />
+		<form-bean name="editForm" type="com.vgsoftware.jbb.form.EditForm" />
+	</form-beans>
+
+	<global-forwards />
+
+	<action-mappings>
+		<action path="/index" type="com.vgsoftware.jbb.action.BoardIndexAction">
+			<forward name="success" path="/WEB-INF/template/board.html" redirect="false" />
+		</action>
+		<action path="/forum" type="com.vgsoftware.jbb.action.ForumIndexAction">
+			<forward name="success" path="/WEB-INF/template/forum.html" redirect="false" />
+			<forward name="failure" path="/index.do" redirect="false" />
+		</action>
+		<action path="/topic" type="com.vgsoftware.jbb.action.TopicIndexAction">
+			<forward name="success" path="/WEB-INF/template/topic.html" redirect="false" />
+			<forward name="failure" path="/forum.do" redirect="false" />
+		</action>
+		<action path="/newreply" type="com.vgsoftware.jbb.action.TopicIndexAction">
+			<forward name="success" path="/WEB-INF/template/reply.html" redirect="false" />
+			<forward name="failure" path="/newreply.do" redirect="false" />
+		</action>
+		<action path="/addreply" type="com.vgsoftware.jbb.action.AddReplyAction" name="replyForm" validate="true" input="/newreply.do">
+			<forward name="success" path="/topic.do" redirect="false" />
+			<forward name="failure" path="/newreply.do" redirect="false" />
+		</action>
+		<action path="/newtopic" type="com.vgsoftware.jbb.action.ForumIndexAction">
+			<forward name="success" path="/WEB-INF/template/newtopic.html" redirect="false" />
+			<forward name="failure" path="/newtopic.do" redirect="false" />
+		</action>
+		<action path="/addtopic" type="com.vgsoftware.jbb.action.AddTopicAction" name="topicForm" validate="true" input="/newtopic.do">
+			<forward name="success" path="/topic.do" redirect="false" />
+			<forward name="failure" path="/newtopic.do" redirect="false" />
+		</action>
+		<action path="/login" type="com.vgsoftware.jbb.action.LoginAction" name="loginForm" validate="true" input="/login.html">
+			<forward name="success" path="/index.do" redirect="false" />
+			<forward name="failure" path="/login.html" redirect="false" />
+		</action>
+		<action path="/logout" type="com.vgsoftware.jbb.action.LogoutAction">
+			<forward name="success" path="/index.do" redirect="false" />
+		</action>
+		<action path="/register" type="com.vgsoftware.jbb.action.RegisterAction" name="registerForm" validate="true" input="/register.html">
+			<forward name="success" path="/index.do" redirect="false"/>
+			<forward name="failure" path="/register.html" redirect="false"/>
+		</action>
+		<action path="/delete" type="com.vgsoftware.jbb.action.DeletePostAction">
+			<forward name="success" path="/topic.do" redirect="false"/>
+		</action>
+		<action path="/preedit" type="com.vgsoftware.jbb.action.PreEditPostAction">
+			<forward name="success" path="/WEB-INF/template/edit.html" redirect="false"/>
+			<forward name="failure" path="/topic.do" redirect="false"/>
+		</action>
+		<action path="/edit" type="com.vgsoftware.jbb.action.EditPostAction" name="editForm" validate="true" input="/preedit.do">
+			<forward name="success" path="/topic.do" redirect="false"/>
+		</action>
+	</action-mappings>
+	<message-resources parameter="resources.ApplicationResources" />
+</struts-config>

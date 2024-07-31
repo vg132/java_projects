@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+<!--	<cron>
+		<url>/realTimeService?siteId=&typeId=</url>
+		<description>Sync Torrents</description>
+		<schedule>every 1 minutes</schedule>
+		<timezone>America/New_York</timezone>
+	</cron>-->
+</cronentries>

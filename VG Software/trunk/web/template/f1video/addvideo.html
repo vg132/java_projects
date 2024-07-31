@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - F1 Video</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+		<script language="javascript">
+			<!--
+				//Auto select a item in a option box when the user selects a value
+				//in a difrent option box
+				function autoSelect(value, dest)
+				{
+					var pos=value.indexOf("|");
+					if(pos>=0)
+					{
+						dest.value=value.substr(pos+1);
+					}
+				}
+
+				function showHideSize(value)
+				{
+					var pos=value.indexOf("|");
+					if(pos>=0)
+					{
+						var tmp=value.substr(pos+1);
+						if(tmp==0)
+						{
+							var ele=document.getElementById('size_div');
+							ele.className='hideSwitch';
+							document.addvideo.filesize.value="0";
+						}
+						else
+						{
+							var ele=document.getElementById('size_div');
+							ele.className='showSwitch';
+						}
+					}
+				}
+
+				function showHideTrack(value)
+				{
+					var pos=value.indexOf("|");
+					if(pos>=0)
+					{
+						var tmp=value.substr(pos+1);
+						if(tmp==0)
+						{
+							var ele=document.getElementById('title_div');
+							ele.className='showSwitch';
+							ele=document.getElementById('track_div');
+							ele.className='hideSwitch';
+						}
+						else
+						{					
+							var ele=document.getElementById('title_div');
+							ele.className='hideSwitch';
+							ele=document.getElementById('track_div');
+							ele.className='showSwitch';
+							document.addvideo.title.value="";
+						}
+					}
+				}
+
+				function init()
+				{
+					var ele=document.getElementById('title_div');
+					ele.className='hideSwitch';
+					ele=document.getElementById('track_div');
+					ele.className='showSwitch';
+					ele=document.getElementById('size_div');
+					ele.className='hideSwitch';
+
+					for(i=1;i<document.addvideo.racetype.options.length;i++)
+					{
+						if(document.addvideo.racetype.options[i].selected)
+						{
+							showHideTrack(document.addvideo.racetype.options[i].value);
+						}
+					}
+
+					for(i=1;i<document.addvideo.media.options.length;i++)
+					{
+						if(document.addvideo.media.options[i].selected)
+						{
+							showHideSize(document.addvideo.media.options[i].value);
+						}
+					}
+				}
+			-->
+		</script>
+	</head>
+	<body onload="init();">
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			<h2 id="pageName">F1 Video</h2>
+			<div class="story">
+				<h3>Add Video</h3>
+				<br/>
+				#errorMarkup()
+				<form method="post" action="/section/f1video/AddVideo.do" name="addvideo">
+					<table>
+						<tr>
+							<td width="100">Type:</td>
+							<td>
+								<select name="racetype" onchange="showHideTrack(this.options[selectedIndex].value);">
+									#foreach($item in $racetypes)
+										#if(${racetype_id}==${item.id})
+											<option value="${item.id}|${item.extra}" selected>${item.name}</option>
+										#else
+											<option value="${item.id}|${item.extra}">${item.name}</option>
+										#end
+									#end
+								</select>
+							</td>
+						</tr>
+					</table>
+					<div id="title_div">
+						<table>
+							<tr>
+								<td width="100">Title:</td>
+								<td><input type="text" name="title" value="$!{title}"/></td>
+							</tr>
+						</table>
+					</div>
+					<div id="track_div">
+						<table>
+							<tr>
+								<td width="100">Track:</td>
+								<td>
+									<select name="track">
+										#foreach($item in $tracks)
+											#if(${track_id}==${item.id})
+												<option value="${item.id}" selected>${item.name}</option>
+											#else
+												<option value="${item.id}">${item.name}</option>
+											#end
+										#end
+									</select>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<table>
+						<tr>
+							<td width="100">Year:</td>
+							<td><input type="text" name="year" size="4" max="4" value="$!{year}"/></td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td width="100">Length:</td>
+							<td><input type="text" name="length" size="4" max="4" value="$!{length}"/></td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td width="100">Channel:</td>
+							<td>
+								<select name="channel" onchange="autoSelect(this.options[selectedIndex].value,document.addvideo.language);">
+									#foreach($item in $channels)
+										#if(${channel_id}==${item.id})
+											<option value="${item.id}|${item.extra}" selected>${item.name}</option>
+										#else
+											<option value="${item.id}|${item.extra}">${item.name}</option>
+										#end
+									#end
+								</select>
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td width="100">Language:</td>
+							<td>
+								<select name="language">
+									#foreach($item in $languages)
+										#if(${language_id}==${item.id})
+											<option value="${item.id}" selected>${item.name}</option>
+										#else
+											<option value="${item.id}">${item.name}</option>
+										#end
+									#end
+								</select>
+							</td>						
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td width="100">Media:</td>
+							<td>
+								<select name="media"  onchange="showHideSize(this.options[selectedIndex].value);">
+									#foreach($item in $medias)
+										#if(${media_id}==${item.id})
+											<option value="${item.id}|${item.extra}" selected>${item.name}</option>
+										#else
+											<option value="${item.id}|${item.extra}">${item.name}</option>
+										#end
+									#end
+								</select>
+							</td>
+						</tr>
+					</table>
+					<div id="size_div">
+						<table>
+							<tr>
+								<td width="100">File Size (Mb):</td>
+								<td><input type="text" name="filesize" size="5" max="5" value="$!{filesize}"/></td>
+							</tr>
+						</table>
+					</div>
+					<table>
+						<tr>
+							<td width="100">Quality:</td>
+							<td>
+								<select name="quality">
+									#foreach($item in $qualities)
+										#if(${quality_id}=="${item.id}")
+											<option value="${item.id}" selected>${item.name}</option>
+										#else
+											<option value="${item.id}">${item.name}</option>
+										#end
+									#end
+								</select>
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td width="100">Video id:</td>
+							<td><input type="text" name="videoid" size="10" max="10" value="$!{videoid}"/></td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td valign="top" width="100">Comment:</td>
+							<td><textarea name="comment" cols="45" rows="8">$!{comment}</textarea></td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td width="100">
+								&nbsp;
+							</td>
+							<td>
+								<input type="submit" value="Add Video"/>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			<p>
+				&nbsp;
+			</p>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/f1video.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

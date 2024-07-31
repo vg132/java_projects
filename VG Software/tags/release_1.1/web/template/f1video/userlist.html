@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - F1 Video</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			<h2 id="pageName">F1 Video</h2>
+			<div class="story">
+				<h3>User list</h3>
+				<br/>
+   			<table cellspacing="5" cellpadding="2">
+   				<tr>
+   					<td width="150"><b>Name</b></td>
+   					<td widht="70"><b>Videos</b></td>
+   				</tr>
+   				#set($color=true)
+    			#foreach($member in $members)
+						#if((!${user})||(${user.id}!=${member.id}))
+							#if($color==true)
+								<tr class="strip2">
+							#else
+								<tr class="strip1">
+							#end
+							#set($color=!$color)
+									<td>
+										<a href="section/f1video/Collection.do?memberId=${member.id}">$member.name</a>
+									</td>
+									<td>
+										$member.getExtraData("f1video_count")
+									</td>
+								</tr>
+						#end
+					#end
+				</table>
+				<p>
+					&nbsp;
+				</p>
+			</div>
+		</div> 
+		<!--end content -->
+		<div id="navBar"> 
+			#parse("include/content/menu/f1video.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

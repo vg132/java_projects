@@ -1,0 +1,85 @@
+<project name="VGSoftware" default="compile" basedir=".">
+	<description>
+		Ant (http://ant.apache.org/) build script for VG Software.
+	</description>
+
+	<!-- set global properties for this build -->
+	<property name="project" value="jbb"/>
+	<property name="src" location="src"/>
+	<property name="web" location="web"/>
+	<property name="conf" location="config"/>
+	<property name="build" location="build"/>
+	<property name="lib" location="lib"/>
+	<property name="doc" location="${build}/doc"/>
+	<property name="webapp" location="${build}/webapp"/>
+	<property name="dist" location="${build}/dist"/>
+	<property name="classes" location="${build}/classes"/>
+	<property name="tomcat-lib" location="d:/java/jakarta-tomcat-5.5.7/common/lib"/>
+	<property name="classpath" value="${lib}/dumbster-1.5.jar:${lib}/commons-lang-2.0.jar:${lib}/commons-email-1.0-dev.jar:${lib}/struts.jar:${lib}/vgutil.jar:${lib}/velocity-dep-1.4.jar:${lib}/velocity-tools-1.1.jar:${tomcat-lib}/servlet-api.jar"/>
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp/>
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="compile" description="Compiles all source files" depends="init">
+		<mkdir dir="${classes}"/>
+		<javac classpath="${classpath}"
+			srcdir="${src}"
+			destdir="${classes}"
+			deprecation="on"
+		/>
+		<copy todir="${classes}/resources" file="${conf}/ApplicationResources.properties"/>
+	</target>
+
+	<target name="webapp" description="Copies all lib, class, config and web files into a webapp directory structure." depends="compile">
+		<mkdir dir="${webapp}"/>
+
+		<!-- all web files -->
+		<copy todir="${webapp}">
+			<fileset dir="${web}" excludes="template/**,download/**"/>
+		</copy>
+		<!-- copy template files -->
+		<copy todir="${webapp}/WEB-INF/template">
+			<fileset dir="${web}/template"/>
+		</copy>
+
+		<!-- copy all lib files -->
+		<copy todir="${webapp}/WEB-INF/lib">
+			<fileset dir="${lib}"/>
+		</copy>
+		<!-- create jar file of all classes -->
+		<jar jarfile="${webapp}/WEB-INF/lib/classes.jar" basedir="${classes}" />
+		<!-- copy all config files -->
+		<copy todir="${webapp}/WEB-INF" file="${conf}/web.xml"/>
+		<copy todir="${webapp}/WEB-INF" file="${conf}/struts-config.xml"/>
+		<copy todir="${webapp}/WEB-INF" file="${conf}/toolbox.xml"/>
+		<copy todir="${webapp}/WEB-INF" file="${conf}/VM_global_library.vm"/>
+		<copy todir="${webapp}/WEB-INF" file="${conf}/velocity.properties"/>
+	</target>
+
+	<target name="dist" description="Packs the webapp into a war archive" depends="webapp">
+		<mkdir dir="${dist}"/>
+		<jar jarfile="${dist}/${project}.war" basedir="${webapp}" />
+	</target>
+
+	<target name="deploy-dev" description="Deploys the webapp on the development server" depends="dist">
+		<copy todir="D:/Java/jakarta-tomcat-5.5.7/webapps/" file="${dist}/${project}.war"/>
+		<delete dir="d:/java/jakarta-tomcat-5.5.7/webapps/${project}" />
+	</target>
+
+	<target name="clean" description="Clears all old builds" depends="init">
+		<delete dir="${build}"/>
+	</target>
+
+	<target name="javadoc" description="Creates JavaDoc for this project." depends="init">
+		<mkdir dir="${doc}"/>
+		<javadoc sourcepath="${src}"
+			destdir="${doc}"
+			packagenames="com.vgsoftware.*"
+			classpath="${classpath}"
+		/>
+	</target>
+</project>

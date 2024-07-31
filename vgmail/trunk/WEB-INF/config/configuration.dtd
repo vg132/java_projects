@@ -1,0 +1,23 @@
+<!ELEMENT configuration (description?,mta, postoffice, user-configuration, template)>
+	<!ELEMENT description (#PCDATA)>
+	<!ELEMENT mta (protocol, host, port)>
+		<!ELEMENT protocol (#PCDATA)>
+		<!ELEMENT host (#PCDATA)>
+		<!ELEMENT port (#PCDATA)>
+	<!ELEMENT postoffice (protocol, host, port, root-folder, address-domain)>
+		<!ELEMENT protocol (#PCDATA)>
+		<!ELEMENT host (#PCDATA)>
+		<!ELEMENT port (#PCDATA)>
+		<!ELEMENT root-folder (#PCDATA)>
+		<!ELEMENT address-domain (#PCDATA)>
+	<!ELEMENT user-configuration (configuration-reader, reader-configuration-file)>
+		<!ELEMENT configuration-reader (#PCDATA)>
+		<!ELEMENT reader-configuration-file (#PCDATA)>
+	<!ELEMENT template (directory)>
+		<!ELEMENT directory (#PCDATA)>
+	<!ELEMENT attachment (upload-directory, clean-interval, maximum-file-age, maximum-size)>
+		<!ELEMENT upload-directory (#PCDATA)>
+		<!ELEMENT clean-interval (#PCDATA)>
+		<!ELEMENT maximum-file-age (#PCDATA)>
+		<!ELEMENT maximum-size (#PCDATA)>
+		

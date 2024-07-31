@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="WEB-INF/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/mixer.jar"/>
+	<classpathentry kind="lib" path="lib/cos.jar"/>
+	<classpathentry kind="lib" path="D:/Java/jakarta-tomcat-5.5.9/common/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="D:/Java/jakarta-tomcat-5.5.9/common/lib/mail.jar"/>
+	<classpathentry kind="lib" path="D:/Java/jakarta-tomcat-5.5.9/common/lib/activation.jar"/>
+	<classpathentry kind="output" path="WEB-INF/classes"/>
+</classpath>

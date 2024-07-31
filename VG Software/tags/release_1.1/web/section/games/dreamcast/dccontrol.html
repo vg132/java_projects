@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - DCControl</title>
+		<base href="$text.baseurl"/>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<div id="content">
+			<h2 id="pageName">DCControl</h2>
+			<div class="story">
+				<h3>Description</h3>
+				<p>
+					This is a wrapper class for KOS that helps get usable information about the state of the dreamcast
+					controller.<br/>
+					The class is updated with the current state of the control on every main game loop
+					loop and can be used to do somthing if the button has been held down for 8 loops or maybe for
+					every 8'th loop or somthing	like that, you have the power to decide :)<br/>
+					It can also be used to check if a button has just been pressed or just been released. It has support for all digital and analog buttons on the dreamcast
+					control.
+				</p>
+			</div>
+			<div class="story">
+				<h3>Download</h3>
+				<p>
+					<a href="${text.baseurl}download/games/dreamcast/dcbutton.tar.gz">DCControl (3kb)</a>
+				</p>
+			</div>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/games.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

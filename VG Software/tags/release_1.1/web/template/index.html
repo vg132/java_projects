@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>VG Software</title>
+        <base href="$text.baseurl" />
+        <link rel="stylesheet" href="$text.basestyle" type="text/css" />
+    </head>
+    <body>
+        #parse("include/content/header.html")
+        <div id="content">
+			<h2 id="pageName">Site News</h2>
+#foreach($item in $news)
+			<div class="story">
+				<h3>$item.title</h3>
+				<p>${item.content}</p>
+				<p>
+					Posted By: <a href="?member_id=$item.authorId">$item.authorName</a> - $item.niceDate
+					#if(${item.canComment()}==true)
+						&nbsp;|&nbsp;&nbsp;<a href="/news/read.do?newsId=$item.id">$item.comments comment(s)</a>
+					#end
+				</p>
+			</div>
+#end
+		</div>
+		<div id="navBar">
+			#parse("include/content/menu/vgsoftware.html")
+			#parse("include/content/menu/member.html")
+        </div>
+    </body>
+</html>

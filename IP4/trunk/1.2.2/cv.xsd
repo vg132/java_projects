@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="cv">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="contact">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="name" type="xsd:string"/>
+							<xsd:element name="address" type="xsd:string"/>
+							<xsd:element name="postcode" type="xsd:string"/>
+							<xsd:element name="country" type="xsd:string"/>
+							<xsd:element name="phone" type="xsd:string" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:attribute name="name" type="xsd:string" use="required"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="educations">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="education" type="xsd:string" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:attribute name="start" type="xsd:string" use="required"/>
+									<xsd:attribute name="end" type="xsd:string" use="required"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="language-skills">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="language" type="xsd:string" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:attribute name="level" type="xsd:string" use="required"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="references">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="reference" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="company" type="xsd:string"/>
+										<xsd:element name="name" type="xsd:string"/>
+										<xsd:element name="position" type="xsd:string"/>
+										<xsd:element name="address" type="xsd:string"/>
+										<xsd:element name="postcode" type="xsd:string"/>
+										<xsd:element name="country" type="xsd:string"/>
+										<xsd:element name="phone" type="xsd:string" maxOccurs="unbounded">
+											<xsd:complexType>
+													<xsd:attribute name="name" type="xsd:string" use="required"/>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>				
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Blog!</string>
+    <string name="app_name">Blog</string>
+    <string name="HeadingLabel">Rubrik</string>
+    <string name="MainBodyLabel">Brödtext</string>
+    <string name="SendButtonText">Skicka</string>
+    <string name="CameraButtonText">Ta kort</string>
+</resources>

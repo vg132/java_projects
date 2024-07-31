@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<accesslist>
+	<access directory="/admin/" level="3"/>
+	<access directory="/member/settings.html" level="2"/>
+	<access directory="/pm/" level="2"/>
+	<access directory="/section/f1video/addvideo.do" level="2"/>
+	<access directory="/section/f1video/delvideo.do" level="2"/>
+	<access directory="/include/content/" level="99"/>
+	<access directory="/WEB-INF/" level="99"/>
+</accesslist>

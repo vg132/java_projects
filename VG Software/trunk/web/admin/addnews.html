@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - Add News</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			<h2 id="pageName">Admin</h2>
+			<div class="story">
+				<h3>Add News Item</h3>
+				<p>
+					#errorMarkup()
+					<form action="${text.baseurl}admin/addnews.do" method="post">
+						<table>
+							<tr>
+								<td>Title:</td>
+								<td><input type="text" name="title" value="$!title"/></td>
+							</tr>
+							<tr>
+								<td valign="top">Content:</td>
+								<td><textarea name="content" rows="10" cols="40">$!content</textarea></td>
+							</tr>
+							<tr>
+								<td>Enable comments:</td>
+								<td align="left"><input type="checkbox" name="comment" checked/></td>
+							</tr>
+							<tr>
+								<td colspan="2" align="right"><input type="submit" value="Add news"/></td>
+							</tr>
+						</table>
+					</form>
+				</p>
+			</div>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/admin.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

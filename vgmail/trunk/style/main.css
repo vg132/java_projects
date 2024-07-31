@@ -1,0 +1,194 @@
+body
+{
+	font-family: Verdana, Tahoma, Arial, sans-serif;
+	font-size: small;
+	margin:10px 10px 0px 10px;
+	padding:0px;
+}
+
+#leftcontent
+{
+	position: absolute;
+	left:10px;
+	top:50px;
+	width:170px;
+	background:#fff;
+	border:1px solid #000;
+}
+
+#maincontent
+{
+	background:#fff;
+	margin-left:169px;
+	margin-right:0px;
+	border:1px solid #000;
+	margin-left:171px;
+	margin-right:0px;
+}
+
+html>body #maincontent
+{
+	margin-left: 201px;
+	margin-right:0px;
+}
+
+#banner
+{
+	background:#ffffff;
+	height:40px;
+	border-top:1px solid #000;
+	border-right:1px solid #000;
+	border-left:1px solid #000;
+}
+
+html>body #banner
+{
+	height:39px;
+}
+
+p,h1,pre
+{
+	margin:0px 10px 10px 10px;
+}
+
+h1
+{
+	font-size:large;
+	padding-top:10px;
+}
+
+#banner h1
+{
+	font-size:large;
+	padding:10px 10px 0px 10px;
+	margin:0px;
+}
+
+.menu td
+{
+	font-size:small;
+}
+
+
+img
+{
+	border:none;
+}
+
+.forminput
+{
+	font-size: small;
+	font-family: verdana, helvetica, sans-serif;
+	vertical-align: middle;
+}
+
+tr.color1
+{
+	background-color:#EDEDED;
+	border-left:0px;
+	border-right:0px;
+	padding:0px;
+	margin:0px;
+}
+
+tr.color2
+{
+	background-color:#FFFFFF;
+	border-left:0px;
+	border-right:0px;
+	padding:0px;
+	margin:0px;
+}
+
+td.subject
+{
+	text-align:left;
+	border-left:68%;
+	border-right:0px;
+	padding:0px;
+	margin:0px;
+}
+
+td.from
+{
+	text-align:left;
+	width:25%;
+	border-left:0px;
+	border-right:0px;
+	padding:0px;
+	margin:0px;
+}
+
+td.select
+{
+	text-align:left;
+	width:1%;
+	border-left:0px;
+	border-right:0px;
+	padding:0px;
+	margin:0px;
+}
+
+td.flags
+{
+	text-align:left;
+	width:1%;
+	border-left:0px;
+	border-right:0px;
+	padding:0px;
+	margin:0px;
+	white-space:nowrap;
+}
+
+td.recived
+{
+	width:5%;
+	border-left:0px;
+	border-right:0px;
+	padding:0px;
+	margin:0px;
+	white-space:nowrap;
+	text-align:left;
+}
+
+tr.fotter
+{
+	background-color:#a2bed4;
+	border-left:0px;
+	border-right:0px;
+	padding:0px;
+	margin:0px;
+}
+
+tr.header
+{
+	background-color:#a2bed4;
+	border-left:0px;
+	border-right:0px;
+	padding:0px;
+	margin:0px;
+}
+
+table.main
+{
+	width:95%;
+	margin-right:auto;
+	margin-left:auto;
+	background-color:#83a0ba;
+	padding:0px 0px 0px 0px;
+	border-collapse:collapse;
+}
+
+table.sub
+{
+	width:100%;
+	padding:0px 0px 0px 0px;
+	margin:0px;
+	border-collapse:collapse;
+}
+
+table.login
+{
+	margin-right:auto;
+	margin-left:auto;
+}

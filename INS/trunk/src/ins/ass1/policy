@@ -1,0 +1,7 @@
+/* AUTOMATICALLY GENERATED ON Sat Dec 06 10:35:14 CET 2003*/
+/* DO NOT EDIT */
+
+grant codeBase "http://localhost/java/ass1.jar" {
+  permission java.net.SocketPermission "*", "accept, connect, listen, resolve";
+};
+

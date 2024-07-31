@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+	<display-name>VG Software - F1 Video</display-name>
+	<description>
+		This is version 2.0 of F1 Video.
+		It was written by Viktor Gars (viktor.gars@vgsoftware.com),
+		who should be contacted for more information about F1 Video.
+	</description>
+
+	<servlet>
+		<servlet-name>ass1a</servlet-name>
+		<description>Simple counter.</description>
+		<servlet-class>ass1.Counter</servlet-class>
+	    <init-param>
+	      <param-name>file</param-name>
+	      <param-value>Z:\dev\java\IP2\data\counter.txt</param-value>
+	    </init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ass1b</servlet-name>
+		<description>Print information about the server and request</description>
+		<servlet-class>ass1.PlainInfo</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ass1c</servlet-name>
+		<description>Simple HTML counter</description>
+		<servlet-class>ass1.HTMLCounter</servlet-class>
+		<init-param>
+			<param-name>file</param-name>
+			<param-value>Z:\dev\java\IP2\data\counter.txt</param-value>
+		</init-param>
+		<init-param>
+			<param-name>htmltemplate</param-name>
+			<param-value>Z:\dev\java\IP2\template\counterhtml.tpl</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ass1d</servlet-name>
+		<description>
+			Print information about the server and request. Use the
+			html templates for presentation.
+		</description>
+		<servlet-class>ass1.HTMLInfo</servlet-class>
+		<init-param>
+			<param-name>htmltemplate</param-name>
+			<param-value>z:\dev\java\IP2\template\htmlinfo.tpl</param-value>
+		</init-param>
+		<init-param>
+			<param-name>blocktemplate</param-name>
+			<param-value>z:\dev\java\IP2\template\htmlinfo_block.tpl</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ass1e</servlet-name>
+		<description>Print out all query information sent to the servlet</description>
+		<servlet-class>ass1.QueryGetter</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ass2a1</servlet-name>
+		<servlet-class>ass2.LinkOne</servlet-class>
+		<init-param>
+			<param-name>template</param-name>
+			<param-value>z:\dev\java\IP2\template\linkpage2.tpl</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ass2a2</servlet-name>
+		<servlet-class>ass2.LinkTwo</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ass2b1</servlet-name>
+		<servlet-class>ass2.FormOne</servlet-class>
+		<init-param>
+			<param-name>template</param-name>
+			<param-value>z:\dev\java\IP2\template\ass2bp2.tpl</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ass2b2</servlet-name>
+		<servlet-class>ass2.FormTwo</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ass2c</servlet-name>
+		<servlet-class>ass2.CookieSetterGetter</servlet-class>
+		<init-param>
+			<param-name>p2template</param-name>
+			<param-value>z:\dev\java\IP2\template\ass2cp2.tpl</param-value>
+		</init-param>
+		<init-param>
+			<param-name>p3template</param-name>
+			<param-value>z:\dev\java\IP2\template\ass2cp3.tpl</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ass3</servlet-name>
+		<servlet-class>ass3.Upload</servlet-class>
+		<init-param>
+			<param-name>uploaddirectory</param-name>
+			<param-value>/uploads/</param-value>
+		</init-param>
+		<init-param>
+			<param-name>template</param-name>
+			<param-value>z:\dev\java\IP2\template\upload.tpl</param-value>
+			<description>HTML template for the guestbook</description>
+		</init-param>
+		<init-param>
+			<param-name>infotemplate</param-name>
+			<param-value>z:\dev\java\IP2\template\upload_info.tpl</param-value>
+			<description>HTML template for the guestbook</description>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ass4a</servlet-name>
+		<servlet-class>ass4.Send</servlet-class>
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>123456</param-value>
+		</init-param>
+		<init-param>
+			<param-name>mailserver</param-name>
+			<param-value>mail.vgsoftware.com</param-value>
+		</init-param>
+		<init-param>
+			<param-name>template</param-name>
+			<param-value>z:\dev\java\IP2\template\sent.tpl</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ass4b</servlet-name>
+		<servlet-class>ass4.SendMultiPart</servlet-class>
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>123456</param-value>
+		</init-param>
+		<init-param>
+			<param-name>mailserver</param-name>
+			<param-value>mail.vgsoftware.com</param-value>
+		</init-param>
+		<init-param>
+			<param-name>template</param-name>
+			<param-value>z:\dev\java\IP2\template\sent.tpl</param-value>
+		</init-param>
+		<init-param>
+			<param-name>htmltemplate</param-name>
+			<param-value>z:\dev\java\IP2\template\multipartsend.tpl</param-value>
+		</init-param>
+		<init-param>
+			<param-name>maildir</param-name>
+			<param-value>z:\dev\java\IP2\mail</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ass4c</servlet-name>
+		<servlet-class>ass4.Receive</servlet-class>
+		<init-param>
+			<param-name>template</param-name>
+			<param-value>z:\dev\java\IP2\template\receive.tpl</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ass5a</servlet-name>
+		<description>Guestbook servlet, post to make a new entry, get to view.</description>
+		<servlet-class>ass5.Guestbook</servlet-class>
+		<init-param>
+			<param-name>dbDriver</param-name>
+			<param-value>org.gjt.mm.mysql.Driver</param-value>
+			<description>Database driver to use.</description>
+		</init-param>
+		<init-param>
+			<param-name>dbURL</param-name>
+			<param-value>jdbc:mysql://atlas.dsv.su.se/db_03_vikto_ga</param-value>
+			<description>Database URL to use</description>
+		</init-param>
+		<init-param>
+			<param-name>dbUser</param-name>
+			<param-value>db_03_vikto_ga</param-value>
+			<description></description>
+		</init-param>
+		<init-param>
+			<param-name>dbPassword</param-name>
+			<param-value>829238</param-value>
+			<description></description>
+		</init-param>
+		<init-param>
+			<param-name>template</param-name>
+			<param-value>z:\dev\java\IP2\template\ass5a.tpl</param-value>
+			<description>HTML template for the guestbook</description>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ass6a</servlet-name>
+		<servlet-class>ass6.Refresh</servlet-class>
+		<init-param>
+			<param-name>file</param-name>
+			<param-value>Z:\dev\java\IP2\data\recounter.txt</param-value>
+		</init-param>
+		<init-param>
+			<param-name>template</param-name>
+			<param-value>z:\dev\java\IP2\template\recounter.tpl</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ass6b</servlet-name>
+		<servlet-class>ass6.Push</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ass7</servlet-name>
+		<servlet-class>ass7.ImageCenter</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ass8</servlet-name>
+		<servlet-class>ass8.XMLTransform</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ass12</servlet-name>
+		<servlet-class>ass12.RSS</servlet-class>
+		<init-param>
+			<param-name>htmltemplate</param-name>
+			<param-value>z:\dev\java\IP2\template\rss.tpl</param-value>
+			<description>HTML template for the guestbook</description>
+		</init-param>
+		<init-param>
+			<param-name>rsstemplate</param-name>
+			<param-value>z:\dev\java\IP2\template\rssdata.tpl</param-value>
+			<description>HTML template for the guestbook</description>
+		</init-param>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ass12-2</servlet-name>
+		<servlet-class>ass12.RSS2</servlet-class>
+		<init-param>
+			<param-name>htmltemplate</param-name>
+			<param-value>z:\dev\java\IP2\template\rss.tpl</param-value>
+			<description>HTML template for the guestbook</description>
+		</init-param>
+	</servlet>
+
+
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>Test</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>invoker</servlet-name>
+		<url-pattern>/servlet/*</url-pattern>
+	</servlet-mapping>
+	
+	<session-config>
+		<session-timeout>5</session-timeout>
+	</session-config>
+</web-app>

@@ -1,0 +1,69 @@
+<project name="SJRC" default="dist" basedir=".">
+	<description>
+		Ant (http://ant.apache.org/) build script for SJRC Client/Server.
+	</description>
+
+	<!-- set global properties for this build -->
+	<property name="src" location="src"/>
+	<property name="build" location="build"/>
+	<property name="dist"  location="dist"/>
+	<property name="doc" location="doc"/>
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp/>
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="build" depends="init" description="Compile the source">
+		<!-- Compile the java code from ${src} into ${build} -->
+		<javac srcdir="${src}" destdir="${build}"/>
+	</target>
+
+	<target name="dist" depends="build" description="Generate the distribution files" >
+		<mkdir dir="${dist}"/>
+
+		<jar jarfile="${dist}/SJRCServer.jar" basedir="${build}" includes="com/vgsoftware/sjrc/server/**/*.*,com/vgsoftware/sjrc/data/**/*.*,lib/**/*.*">
+			<manifest>
+				<attribute name="Main-Class" value="com.vgsoftware.sjrc.server.Server" />
+				<attribute name="Class-Path" value="bcprov-jdk14-123.jar"/>
+			</manifest>
+		</jar>
+		<jar jarfile="${dist}/SJRCClient.jar" basedir="${build}" includes="com/vgsoftware/sjrc/client/**/*.*,com/vgsoftware/sjrc/data/**/*.*,lib/**/*.*">
+			<manifest>
+				<attribute name="Main-Class" value="com.vgsoftware.sjrc.client.Client" />
+				<attribute name="Class-Path" value="bcprov-jdk14-123.jar"/>
+			</manifest>
+		</jar>
+		<jar jarfile="${dist}/SJRCApplet.jar" basedir="${build}" includes="com/vgsoftware/sjrc/web/**/*.*,com/vgsoftware/sjrc/client/**/*.*,com/vgsoftware/sjrc/data/**/*.*,lib/**/*.*">
+			<manifest>
+				<attribute name="Main-Class" value="com.vgsoftware.sjrc.web.WebClient" />
+				<attribute name="Class-Path" value="bcprov-jdk14-123.jar"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="run-client" depends="dist" description="Runs the client distribution">
+		<java classname="com.vgsoftware.sjrc.client.Client" classpath="${dist}/SJRCClient-${DSTAMP}.jar" fork="true"/>
+	</target>
+
+	<target name="run-server" depends="dist" description="Runs the server distribution">
+		<java classname="com.vgsoftware.sjrc.server.Server" classpath="${dist}/SJRCServer-${DSTAMP}.jar" fork="true"/>
+	</target>	
+
+	<target name="javadoc" description="Generate javadoc documentation">
+		<mkdir dir="${doc}"/>
+		<javadoc destdir="${doc}" access="public" source="1.4" use="true"
+			notree="false" nonavbar="false" noindex="false"
+			splitindex="true" author="true" version="true"
+			nodeprecatedlist="false" nodeprecated="false"
+			packagenames="com.vgsoftware.sjrc.data,com.vgsoftware.sjrc.client,com.vgsoftware.sjrc.client.panel,com.vgsoftware.sjrc.server"
+			sourcepath="${src}" classpath="${build}"/>
+	</target>
+
+	<target name="clean" description="Delete the ${build} and ${dist} directory trees" >
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+	</target>
+</project>

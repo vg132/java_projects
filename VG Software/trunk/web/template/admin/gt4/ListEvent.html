@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - Admin</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			<h2 id="pageName">GT4 Admin</h2>
+			<div class="story">
+				<h3>Events</h3>
+				<p>
+					<ul>
+						#foreach($event in $events)
+						<li>${event.getFullName(${velocityCount})} - <a href="admin/gt4/RemoveEvent.do?event=${event.id}&season=${event.seasonId}">Delete</a></li>
+						#end
+					</ul>
+					<form action="admin/gt4/AddEvent.do" method="post">
+						<input type="hidden" name="season" value="$!{season}"/>
+						<table>
+							<tr>
+								<td>
+									Track:
+								</td>
+								<td>
+									<input type="text" name="track" value="$!{track}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Race Type:
+								</td>
+								<td>
+									<input type="text" name="type" value="$!{type}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Start:
+								</td>
+								<td>
+									<input type="text" name="start" value="$!{start}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									End:
+								</td>
+								<td>
+									<input type="text" name="end" value="$!{end}"/>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<input type="submit" value="Add Event"/>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</p>
+			</div>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/admin.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

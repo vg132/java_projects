@@ -1,0 +1,7 @@
+* Font: Arial 14, Kerning: 55, Leading: 50, Normal
+
+Next
+Score
+Lines
+Level
+(Time)

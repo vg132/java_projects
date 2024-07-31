@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - Comments</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			<h2 id="pageName">Site News - Comments</h2>
+			<div class="story">
+				<h3>${news.title}</h3>
+				<p>
+					${news.content}
+				</p>
+			</div>
+			<div class="story">
+				<h3>Comments on this news item</h3>
+				<br/>
+    			<table cellspacing="5" cellpadding="2" width="100%">
+				#set($even=true)
+    			#foreach($item in $comments)
+					#if($even)
+						<tr class="strip2">
+					#else
+						<tr class="strip1">
+					#end
+					#set($even=!$even)
+    					<th valign="top" align="left" width="15%">
+							<a href="#">$item.memberName</a><br/>
+							<div class="postdate">
+								${item.nicePostDate}
+							#if(($user.id==$item.userId)||($user.isAdmin()))
+								<br/>
+								<a href="news/comment/edit.do?commentId=${item.id}">Edit</a> - <a href="news/comment/delete.do?newsId=${news.id}&commentId=${item.id}">Delete</a>
+							#end
+							</div>
+						</th>
+    					<td valign="top">
+							$item.comment
+							#if($item.postDate!=$item.editDate)
+								<div class="postdate">
+									<br/>
+									<i>Edited ${item.niceEditDate}</i>
+								</div>
+							#end
+						</td>
+    				</tr>
+				#end
+				#if($comments.size()==0)
+					<tr>
+						<td>No comments</td>
+					</tr>
+				#end
+    			</table>
+			</div>
+			#if($!{user})
+			<div class="story">
+				<h3>Comment on this news item</h3>
+				<br/>
+				#errorMarkup()
+				<form action="news/comment/add.do" method="post">
+					<input type="hidden" name="newsId" value="${news.id}"/>
+					<table width="100%">
+						<tr>
+							<td>Your comment:</td>
+						</tr>
+						<tr>
+							<td><textarea name="comment" style="width:99%;height:100px;">$!{comment}</textarea></td>
+						</tr>
+						<tr>
+							<td align="right"><input type="submit" value="Add your comment"></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			#end
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/vgsoftware.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

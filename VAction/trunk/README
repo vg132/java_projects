@@ -1,0 +1,7 @@
+VAction - VG Software 2005
+
+VAction is a web application framework that looks very much like a striped down
+version of Struts (http://struts.apache.org/). Struts was the insperation 
+during the development of this framework.
+To compile and run this you need commons collections and commons dbcp 
+(http://jakarta.apache.org/commons/).

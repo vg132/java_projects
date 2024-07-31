@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - Service</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			<h2 id="pageName">Admin</h2>
+			<div class="story">
+				<h3>Add Service</h3>
+				<p>
+					#errorMarkup()
+					<form action="${text.baseurl}admin/service.do" method="post">
+						<table>
+							<tr>
+								<td>Name:</td>
+								<td><input type="text" name="name" value="$!name"/></td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<input type="submit"/>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</p>
+			</div>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/admin.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

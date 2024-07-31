@@ -1,0 +1,9 @@
+MIDlet-1: VMap,,com.vgsoftware.VMap.VMap
+MIDlet-Jar-Size: 16852
+MIDlet-Jar-URL: VMap.jar
+MIDlet-Name: VMap
+MIDlet-Permissions: javax.microedition.io.Connector.file.read
+MIDlet-Vendor: VG Software
+MIDlet-Version: 1.0.0
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0

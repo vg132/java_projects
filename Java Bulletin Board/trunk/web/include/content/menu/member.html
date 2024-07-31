@@ -1,0 +1,17 @@
+<div id="sectionLinks">
+	<ul>
+#if(!$user)
+		<li><a href="member/register.html">Register</a></li>
+		<li><a href="member/login.html">Login</a></li>
+		<li><a href="member/sendpwd.html">Lost Password?</a></li>
+#else
+		<li><a href="member/logout.do?logout=yes">Logout</a></li>
+		<li><a href="member/settings.html">Settings</a></li>
+		<li><a href="pm/inbox.do">PM inbox</a></li>
+		<li><a href="pm/write.html">Compose PM</a></li>
+	#if($user.getGroup().equals("Admin"))
+		<li><a href="admin/index.html">Admin</a></li>
+	#end
+#end
+	</ul>
+</div>

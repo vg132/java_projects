@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - Tetris 2 Source</title>
+		<base href="$text.baseurl"/>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<div id="content">
+			<h2 id="pageName">Tetris 2 Source</h2>
+			<div class="story">
+				<h3>Description</h3>
+				<p>
+					This is the full source code for my game Tetris 2 for Dreamcast.<br/>
+					Included is also updated files for the sndmp3 lib that is included with KOS, the changes consist
+					of bug fixes and the ability to add a callback function that will recive information about state
+					changes, this is used to know when one track has ended and we need to start the next one.
+					A XML parser is also included and this one is used for the theme system in the game.<br/>
+					Tetris 2 is built with KOS 1.2.0 and g++ 3.0.4 for SH4 processors.
+				</p>
+			</div>
+			<div class="story">
+				<h3>Download</h3>
+				<p>
+					<a href="${text.baseurl}download/games/dreamcast/tetris2/tetris_source.tar.gz">Tetris 2 Source (158kb)</a>
+				</p>
+			</div>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/games.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

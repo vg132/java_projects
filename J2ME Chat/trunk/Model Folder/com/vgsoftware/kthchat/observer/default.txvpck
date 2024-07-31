@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<nodeSet  version="1.1">
+	<view uin="V574ng9e2jlatif-uhfpmb">
+		<property name="$defaultDiagram" value="true"/>
+		<property name="$metaclass" value="Package Diagram"/>
+		<reference referencedUin="jdt:e_class:src:com.vgsoftware.kthchat.observer.Subject">
+			<property name="bounds" value="20,20,117,108"/>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:com.vgsoftware.kthchat.observer.Observer">
+			<property name="bounds" value="147,20,89,69"/>
+		</reference>
+	</view>
+</nodeSet>

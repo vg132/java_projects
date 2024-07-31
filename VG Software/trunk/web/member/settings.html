@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>VG Software - Settings</title>
+		<base href="$text.baseurl"/>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<div id="content">
+			<h2 id="pageName">VG Software</h2>
+			<div class="story">
+				<h3>Settings</h3>
+				<p>
+					Here you can update your profile, change email address and change
+					password. When you update your email address you have to enter your
+					current password.<br/>
+					#errorMarkup()
+				</p>
+				<form action="member/settings.do" method="post">
+    				<h3>Email</h3>
+    				<p>
+    					<table>
+    						<tr>
+    							<td width="150">Email:</td>
+    							<td><input type="text" name="email" value="$user.email"/></td>
+    						</tr>
+    					</table>
+    				</p>
+    				<h3>Password</h3>
+    				<p>
+    					<table>	
+    						<tr>
+    							<td width="150">Current Password:</td>
+    							<td><input type="password" name="currentPassword"/></td>
+    						</tr>
+    						<tr>
+    							<td width="150">New Password:</td>
+    							<td><input type="password" name="newPassword"/></td>
+    						</tr>
+    						<tr>
+    							<td width="150">Confirm New Password:</td>
+    							<td><input type="password" name="newPassword2"/></td>
+    						</tr>
+						</table>
+						<table>
+    						<tr>
+								<td width="150">&nbsp;</td>
+    							<td><input type="submit" value="Save Changes"/></td>
+    						</tr>
+    					</table>
+    				</p>
+				</form>
+			</div>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/vgsoftware.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - PM</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			<h2 id="pageName">PM - Read</h2>
+			<div class="story">
+				<h3>${title}</h3>
+				<p>
+					<table width="100%">
+						<tr class="strip2">
+							<td>From: ${from}</td>
+						</tr>
+						<tr class="strip1">
+							<td>${content}</td>
+						</tr>
+					</table>
+				</p>
+			</div>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/vgsoftware.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

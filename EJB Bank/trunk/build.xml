@@ -1,0 +1,87 @@
+<project name="Bank" default="compile" basedir=".">
+	<description>
+		Ant (http://ant.apache.org/) build script for Bank.
+	</description>
+
+	<property name="project" value="bank" />
+	<property name="ejb-src" location="ejb-src" />
+	<property name="web-src" location="web-src" />
+	<property name="web" location="web" />
+	<property name="config" location="config" />
+	<property name="build" location="build" />
+	<property name="lib" location="lib" />
+	<property name="tld" location="${config}/tld" />
+	<property name="doc" location="${build}/doc"/>
+	<property name="webapp" location="${build}/webapp"/>
+	<property name="ejbapp" location="${build}/ejbapp"/>
+	<property name="dist" location="${build}/dist"/>
+	<property name="web-classes" location="${webapp}/WEB-INF/classes"/>
+	<property name="tomcat-lib" location="d:/java/jakarta-tomcat-5.5.7/common/lib"/>
+	<property name="orion-lib" location="d:/java/orion"/>
+	<property name="classpath" value="${orion-lib}/orion.jar:${orion-lib}/ejb.jar:${build}/ejbapp:${lib}/vaction.jar"/>
+	<property name="deploy" location="d:/java/orion/applications" />
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp/>
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="web-compile" description="" depends="init">
+		<mkdir dir="${web-classes}" />
+		<javac classpath="${classpath}"
+			srcdir="${web-src}"
+			destdir="${web-classes}"
+			deprecation="on"
+		/>
+	</target>
+	
+	<target name="ejb-compile" description="" depends="init">
+		<mkdir dir="${ejbapp}" />
+		<javac classpath="${classpath}"
+			srcdir="${ejb-src}"
+			destdir="${ejbapp}"
+			deprecation="on"
+		/>	
+	</target>
+
+	<target name="compile" description="Compiles all source files" depends="ejb-compile,web-compile" />
+
+	<target name="config" depends="compile">
+		<mkdir dir="${dist}/META-INF" />
+		<mkdir dir="${ejbapp}/META-INF" />
+		<mkdir dir="${webapp}/WEB-INF/lib" />
+		<mkdir dir="${webapp}/WEB-INF/tld" />
+		<mkdir dir="${webapp}/WEB-INF/template" />
+		<copy todir="${dist}/META-INF" file="${config}/application.xml" />
+		<copy todir="${webapp}/WEB-INF" file="${config}/web.xml" />
+		<copy todir="${webapp}/WEB-INF" file="${config}/vaction-config.xml" />
+		<copy todir="${ejbapp}/META-INF" file="${config}/ejb-jar.xml" />
+		<copy todir="${ejbapp}/META-INF" file="${config}/application-client.xml" />
+
+		<copy todir="${webapp}">
+			<fileset dir="${web}" excludes="template/**"/>
+		</copy>
+		<copy todir="${webapp}/WEB-INF/template">
+			<fileset dir="${web}/template"/>
+		</copy>
+		<copy todir="${webapp}/WEB-INF/lib">
+			<fileset dir="${lib}"/>
+		</copy>
+		<copy todir="${webapp}/WEB-INF/tld">
+			<fileset dir="${tld}"/>
+		</copy>
+	</target>
+
+	<target name="pack" depends="config">
+		<jar jarfile="${dist}/${project}-ejb.jar" basedir="${ejbapp}" />
+		<jar jarfile="${dist}/${project}-web.war" basedir="${webapp}" />
+		<jar jarfile="${build}/${project}.ear" basedir="${dist}" />
+		<copy todir="${deploy}" file="${build}/${project}.ear" />
+	</target>
+
+	<target name="clean" description="Clears all old builds" depends="init">
+		<delete dir="${build}" />
+	</target>
+</project>

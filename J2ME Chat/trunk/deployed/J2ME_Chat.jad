@@ -1,0 +1,10 @@
+MIDlet-Jar-Size: 20237
+port: 2005
+MIDlet-1: ChatClient,,com.vgsoftware.f1bb.j2me.ChatClient
+server: localhost
+MIDlet-Jar-URL: J2ME_Test.jar
+MicroEdition-Configuration: CLDC-1.1
+MIDlet-Version: 1.0.0
+MIDlet-Name: J2ME Test Midlet Suite
+MIDlet-Vendor: Midlet Suite Vendor
+MicroEdition-Profile: MIDP-2.0

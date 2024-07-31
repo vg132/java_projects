@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ 	<string name="hello">Hello Hero from XML!</string>
+ 	<string name="app_name">Hello</string>
+ 	<string name="Type_Select">Välj trafikslag</string>
+ 	<string name="Station_Select">Välj station</string>
+ 	<string name="ShowTimes">Visa aktuella tider</string>
+ 	<string name="RealTimeTabName">Realtid</string>
+ 	<string name="FavoriteTabName">Favoriter</string>
+</resources>

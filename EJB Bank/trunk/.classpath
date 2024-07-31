@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="ejb-src">
+		<attributes>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Java/orion/orion.jar">
+		<attributes>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Java/orion/ejb.jar">
+		<attributes>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="web-src">
+		<attributes>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="Z:/dev/java/EJB Bank/lib/jstl.jar">
+		<attributes>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="Z:/dev/java/EJB Bank/lib/standard.jar">
+		<attributes>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="Z:/dev/java/EJB Bank/lib/commons-collections-3.1.jar">
+		<attributes>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="Z:/dev/java/EJB Bank/lib/vaction.jar">
+		<attributes>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="Z:/dev/java/EJB Bank/lib/commons-dbcp-1.2.1.jar">
+		<attributes>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

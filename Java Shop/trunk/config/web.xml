@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+	xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+	<display-name>Shop</display-name>
+	<description></description>
+
+	<listener>
+		<listener-class>com.vgsoftware.shop.init.Init</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>controller</servlet-name>
+		<servlet-class>com.vgsoftware.vaction.ControllerServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>controller</servlet-name>
+		<url-pattern>*.ijs</url-pattern>
+	</servlet-mapping>
+
+	<taglib>
+		<taglib-uri>http://jakarta.apache.org/taglibs/core</taglib-uri>
+		<taglib-location>/WEB-INF/tld/c.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+		<taglib-uri>http://jakarta.apache.org/taglibs/fmt</taglib-uri>
+		<taglib-location>/WEB-INF/tld/fmt.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+		<taglib-uri>http://www.vgsoftware.com/taglibs/vlib</taglib-uri>
+		<taglib-location>/WEB-INF/tld/v.tld</taglib-location>
+	</taglib>
+
+	<welcome-file-list>
+		<welcome-file>index.ijs</welcome-file>
+	</welcome-file-list>
+</web-app>

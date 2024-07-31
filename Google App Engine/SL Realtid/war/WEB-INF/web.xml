@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>RealTimeServlet</servlet-name>
+		<servlet-class>com.vgsoftware.appengine.slrealtime.servlets.RealTimeServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SetupServlet</servlet-name>
+		<servlet-class>com.vgsoftware.appengine.slrealtime.servlets.SetupServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CloseToMeServlet</servlet-name>
+		<servlet-class>com.vgsoftware.appengine.slrealtime.servlets.CloseToMeServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SearchServlet</servlet-name>
+		<servlet-class>com.vgsoftware.appengine.slrealtime.servlets.SearchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RealTimeServlet</servlet-name>
+		<url-pattern>/realTimeService</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SetupServlet</servlet-name>
+		<url-pattern>/setup</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CloseToMeServlet</servlet-name>
+		<url-pattern>/closeToMe</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SearchServlet</servlet-name>
+		<url-pattern>/search</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

@@ -1,0 +1,151 @@
+<html>
+	<head>
+		<title>JRC - Instructions</title>
+	</head>
+	<body>
+		<h2>JRC Instructions</h2>
+		<hr/>
+		<p>
+			<b>What is JRC?</b>
+		</p>
+		<p>
+			JRC stands for "Java Relay Chat" and is a free and independent chat system developed in the <a href="http://java.sun.com/">Java</a> programming language.<br/>
+			It uses a very simple text based protocoll to communicate between the server and clients.
+		</p>
+		<hr/>
+		<p>
+			<b>What do I need to run the JRC server?</b>
+		</p>
+		<p>
+			The first thing you need is a Java Virtual Machine, you can download this from <a href="http://java.sun.com/">Sun</a>, after that you dont need much more :)<br/>
+			The server has no user interface so no graphics system is requred on the server. All you see when the server is running is a black screen. <br/>
+			<img src="img/server_screen.gif" alt="server screen">
+		</p>
+		<hr/>
+		<p>
+			<b>How do I start the server?</b>
+		</p>
+		<p>
+			The server is easy started from the command prompt of you system. By default the server starts on port 2000 but this can be changed by providing a command line parameter.<br/>
+			To start the server just,
+			<ul>
+				<li>type this line in the Run dialog in Windows,
+				<p>
+					<hr/>
+					<code>
+						java -jar JRCServer.jar [PORT]
+					</code>
+					<hr/>
+				</p>
+				<li>type this at the command prompt in unix,
+				<p>
+					<hr/>
+					<code>
+						java -jar JRCServer.jar [PORT]
+					</code>
+					<hr/>
+				</p>
+				<li>type this at the command prompt in unix if you want to run the server in the background,
+				<p>
+					<hr/>
+					<code>
+						java -jar JRCServer.jar [PORT] &
+					</code>
+					<hr/>
+				</p>
+			</ul>
+		</p>
+		<hr/>
+		<p>
+			<b>What do I need to run the JRC Client software?</b>
+		</p>
+		<p>
+			You need a <a href="http://java.sun.com/">JVM</a> for the client also. The client also uses <a href="http://www.jdom.org/">JDOM</a> so you need to have this installed and configurated on your system before you can run the client software.<br/>
+			When you have this 2 components installed you can start the client by just,
+
+			<ul>
+				<li>type this line in the Run dialog in Windows,
+				<p>
+					<hr/>
+					<code>
+						java -jar JRCClient.jar
+					</code>
+					<hr/>
+				</p>
+				<li>type this at the command prompt in unix,
+				<p>
+					<hr/>
+					<code>
+						java -jar JRCClient.jar
+					</code>
+					<hr/>
+				</p>
+			</ul>
+		</p>
+		<hr/>
+		<p>
+			<b>How do I use the client?</b>
+		<p>
+		<p>
+			When you start JRCClient you will get this Window,<br/>
+			<img src="img/client_screen.gif" alt="client window."><br/>
+			Here from the menu you can select,
+			<ul>
+				<li>Connect</li>
+				<li>Close connection</li>
+				<li>Exit</li>
+			</ul>
+			<b>Connect</b>
+			<p>
+				When you select Connect you will get this screen,<br/>
+				<img src="img/connect_screen.gif" alt="Connect screen"><br/>
+				Here you can select a saved connection from the combo box or you can enter the data the server needs, address, port and nick name. Password use is not added to my server software but my be added by other servers.<br/>
+				To save the connection data press the "Save" button and make shore that you have enterd a name for the connection in the combo box. The connection will be saved in the file servers.xml, the file will be created in the root folder for this program. You can also delete a connection from this file by pressing the delete button.<br/>
+				When you are ready to connect to a server just press the connect button.
+			</p>
+			<b>Close connection</b>
+			<p>
+				If you have a open connection you close it with this menu item.
+			</p>
+			<b>Exit</b>
+			<p>
+				As the name say, this will let you exit the progam. All connections to the server will be closed.
+			</p>
+		</p>
+		<hr/>
+		<p>
+			<b>Ok, what do I do when I have pressed "Connect"?</b>
+		</p>
+		<p>
+			When you are connected you will see this screen,<br/>
+			<img src="img/server_status.gif" alt="Server status"/><br/>
+			Now you can start using the program.<br/>
+			You use the program by writing commands in the text field at the bottom of the screen. The commands are,
+			<ul>
+				<li>/join CHANNEL - replace CHANNEL with the name of the channel you want to join to join it :)
+				<li>/whois NICK_NAME - replace NICK_NAME with a nick name to get information about that users.
+				<li>/list users - this will list all users connected to this server.
+				<li>/list channels - this will list all channels currently running on the server.
+				<li>/? - This will list all commands, basicly the same list as here.
+				<li>cls - this will remove all text currently in the window.
+			</ul>
+		</p>
+		<hr/>
+		<p>
+			<b>Ok, what do I do when I have entered a channel?</b>
+		</p>
+		<p>
+			Then the fun starts, everything you write is sent to everyone connected that channel.<br/>
+			The chat window looks like this,<br/>
+			<img src="img/chat.gif" alt="Chat window"/><br/>
+			You write you text in the text field at the bottom of the screen, when you press enter its sent to all other connected users. On the right side of the text field you can select what text color you want to use, press the button to bring upp the color selector. Also on the left side you have the user list. This is a list of all users that are currently connected to this channel. If you right click on a user you get a menu and the option to ask the server who this user is, the response is recived in the server window, you can activate this winow again by clicking the server tabb at the top of the window. You can always walk between tabbs this way. If you right click on a tabb you get a close menu, this will close that channel. You can connect to as many channels as you want at the same time, just walk between them with the tabbs.
+		</p>
+		<hr/>
+		<p>
+			<b>I love this program and have added my own code to it, but who do I compile it?</b>
+		</p>
+		<p>
+			In the root folder there is a build.xml, this is a <a href="http://ant.apache.org/">Ant</a> build file, use this to build the class files, pack the class files into jar files and build the javadoc files.
+		</p>
+	</body>
+</html>

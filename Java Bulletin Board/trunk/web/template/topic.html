@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>$text.title -> $forum.categoryName -> $forum.name</title>
+        <link rel="stylesheet" href="$text.style" type="text/css" />
+    </head>
+	<body>
+		<h2 id="pageName">$topic.title</h2>
+		<div class="story">
+			<h3>#if($!{user})<a href="newreply.do?topicId=$topic.id&forumId=$forum.id">$text.addreply</a>#else<a href="login.html">Login</a> - <a href="register.html">Register</a>#end</h3>
+			#errorMarkup()
+			<table cellspacing="5" cellpadding="2" width="100%">
+				#set($even=true)
+				#foreach($post in $posts)
+					#if($even)
+						<tr class="strip2">
+					#else
+						<tr class="strip1">
+					#end
+					#set($even=!$even)
+    					<th valign="top" align="left" width="15%">
+							<a href="#">${post.memberName}</a><br/>
+							<div class="postdate">
+								${post.nicePostDate}
+								#if(${user.id}==${post.memberId})
+									<br/>
+									<a href="preedit.do?forumId=${forum.id}&topicId=${topic.id}&postId=${post.id}">Edit</a> - <a href="delete.do?forumId=${forum.id}&topicId=${topic.id}&postId=${post.id}">Delete</a>
+								#end
+							</div>
+						</th>
+    					<td valign="top">
+							${post.htmlContent}
+							#if(${post.editDate}!=${post.postDate})
+							<div class="postdate">
+								<br/>
+								<i>Edited ${post.niceEditDate}</i>
+							</div>
+							#end
+						</td>
+    				</tr>
+				#end
+    		</table>
+		</div>
+	</body>
+</html>

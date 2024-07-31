@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE cv SYSTEM "1.2.1/cv.dtd">
+<cv>
+	<contact>
+		<private:name>Viktor</private:name>
+		<private:address>Dellvägen 45</private:address>
+		<private:postcode>133 00</private:postcode>
+		<private:country>Sweden</private:country>
+		<private:phone name="home">08-541236</private:phone>
+		<private:phone name="mobile">010-1231245</private:phone>
+	</contact>
+	<educations>
+		<education start="2002" end="2005">DSV</education>
+	</educations>
+	<language-skills>
+		<language level="modersmål">Svenska</language>
+		<language level="mycket god">Engelska</language>
+	</language-skills>
+	<references>
+		<company:reference>
+			<company:company>VG Software</company:company>
+			<company:logo>Logo</company:logo>
+			<company:name>Kalle Anksson</company:name>
+			<company:position>VD</company:position>
+			<company:address>Dalvägen 45</company:address>
+			<company:postcode>58401</company:postcode>
+			<company:country>Sweden</company:country>
+			<company:phone name="office">08-88552211</company:phone>
+		</company:reference>
+	</references>
+</cv>

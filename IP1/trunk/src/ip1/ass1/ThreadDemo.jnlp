@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<jnlp
+  spec="1.0+"
+  codebase="http://www.vgsoftware.com:8080/foo/javatest/"
+  href="ThreadDemo.jnlp">
+  <information>
+    <title>WebStartThread</title>
+    <vendor>VG Software</vendor>
+    <description>WebStart Thread Demo Application</description>
+    <description kind="short">WebStart Thread Demo.</description>
+  </information>
+  <resources>
+    <j2se version="1.4"/>
+    <jar href="webstart.jar"/>
+  </resources>
+  <application-desc main-class="ip1.ass1.webstart.WebStartThread"/>
+</jnlp>

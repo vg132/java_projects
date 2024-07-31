@@ -1,0 +1,145 @@
+
+<public:event	name="onrowselect" ID=rowSelect />
+<PUBLIC:ATTACH EVENT="ondetach" ONEVENT="cleanup()" />
+
+<script language=jscript>
+
+var currRow = -1;
+var selRow = -1;
+
+if (element.tagName == 'TABLE')
+{
+	element.attachEvent('onmouseover', onMouseOver);
+	element.attachEvent('onmouseout', onMouseOut);
+	element.attachEvent('onclick', onClick);
+}
+else
+{
+	alert("Error: tablehl not attached to a table element");
+}
+
+function cleanup()
+{
+	hilite(-1);
+
+	element.detachEvent('onmouseover', onMouseOver);
+	element.detachEvent('onmouseout', onMouseOut);
+	element.detachEvent('onclick', onClick);
+}
+
+function onClick()
+{
+var hlColor="#ced3e1";
+var slColor="#ced3e1";
+
+	srcElem = window.event.srcElement;
+
+	//crawl up the tree to find the table row
+	while (srcElem.tagName != "TR" && srcElem.tagName != "TABLE")
+		srcElem = srcElem.parentElement;
+
+	if(srcElem.tagName != "TR")
+		return;
+	if(window.event.srcElement=="HR")
+		return;
+	var aNodeList = window.event.srcElement.childNodes;
+	if (aNodeList!=null)
+	{
+		for (i=0; i<aNodeList.length; i++)
+		{
+			if(aNodeList.item(i).tagName=='HR')
+			{
+				return;
+			}
+		}
+	}
+
+	if(selRow != -1 && selRow==srcElem)
+	{
+		selRow.runtimeStyle.backgroundColor = '';
+		selRow=-1;
+		return;
+	}
+
+	if(selRow != -1)
+		selRow.runtimeStyle.backgroundColor = '';
+
+	srcElem.runtimeStyle.backgroundColor = slColor;
+	selRow = srcElem;
+	
+	var oEvent 	= createEventObject();
+	oEvent.selected = selRow;
+	rowSelect.fire(oEvent);
+	
+	
+	var aNodeList = window.event.srcElement.childNodes;
+	if (aNodeList!=null)
+	{
+		for (i=0; i<aNodeList.length; i++)
+		{
+			if(aNodeList.item(i).tagName=='A')
+			{
+				aNodeList.item(i).click();
+			}
+		}
+	}
+}
+
+function onMouseOver()
+{
+	srcElem = window.event.srcElement;
+	//crawl up to find the row
+	while (srcElem.tagName != "TR" && srcElem.tagName != "TABLE")
+		srcElem = srcElem.parentElement;
+
+	if(srcElem.tagName != "TR")
+		return;
+	if(window.event.srcElement=="HR")
+		return;
+
+	var aNodeList = window.event.srcElement.childNodes;
+	if (aNodeList!=null)
+	{
+		for (i=0; i<aNodeList.length; i++)
+		{
+			if(aNodeList.item(i).tagName=='HR')
+			{
+				return;
+			}
+		}
+	}
+
+	if (srcElem.rowIndex >=0)
+		hilite(srcElem);
+	else
+		hilite(-1);
+
+}
+
+function onMouseOut()
+{
+	// Make sure we catch exit from the table
+	hilite(-1, -1);
+}
+
+function hilite(newRow)
+{
+var hlColor="#ced3e1";
+var slColor="#ced3e1";
+
+	if (hlColor != null)
+	{
+		if (currRow != -1 && currRow!=selRow)
+		{
+			currRow.runtimeStyle.backgroundColor = '';
+		}
+
+		if (newRow != -1 && newRow!=selRow)
+		{
+			newRow.runtimeStyle.backgroundColor = hlColor;
+		}
+	}
+	currRow = newRow;
+} 
+
+</script>

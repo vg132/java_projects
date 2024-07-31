@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<directory>
+	<!--
+		The base directory for user configurations
+	-->
+	<base>c:/temp</base>
+	<!--
+		The nr is the nr of letters taken from the start of the username,
+		this will form a relative directory name from the base (<base>).
+		You can create more directorys by seperating the numbers with a / sign.
+		When the last directory is created a xml file with the username will
+		be created in that directory. To create a directory with the full username user 0.
+		
+		Example 1:
+		---------
+		<base>/var/vgmail/userconfig</base>
+		<layout>2/3</layout>
+		username: vgsoft0007
+		
+		The users configuration will now be saved in
+		/var/vgmail/userconfig/vg/vgs/vgsoft0007.xml
+
+		
+		Example 2:
+		---------
+		<base>/var/vgmail/userconfig</base>
+		<layout>2/3/0</layout>
+		username: vgsoft0007
+		
+		The users configuration will now be saved in
+		/var/vgmail/userconfig/vg/vgs/vgsoft0007/vgsoft0007.xml
+	-->
+	<layout>2</layout>
+	<!--
+		The relative path to the default user configuration.
+		This i relative to the base path.
+	-->
+	<default>default.xml</default>
+</directory>

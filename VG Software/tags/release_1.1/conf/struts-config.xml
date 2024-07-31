@@ -1,0 +1,202 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<display-name />
+	<description />
+
+	<data-sources>
+		<data-source type="org.apache.commons.dbcp.BasicDataSource">
+			<set-property property="driverClassName" value="com.mysql.jdbc.Driver" />
+			<set-property property="url" value="jdbc:mysql://zelda.vgsoftware.com/vgsoftware" />
+			<set-property property="username" value="dev" />
+			<set-property property="password" value="ved" />
+		</data-source>
+	</data-sources>
+
+	<form-beans>
+		<form-bean name="registerForm" type="com.vgsoftware.web.form.member.RegisterForm" />
+		<form-bean name="recoverPasswordForm" type="com.vgsoftware.web.form.member.RecoverPasswordForm" />
+		<form-bean name="settingsForm" type="com.vgsoftware.web.form.member.SettingsForm" />
+		<form-bean name="loginForm" type="com.vgsoftware.web.form.member.LoginForm" />
+		<form-bean name="emailForm" type="com.vgsoftware.web.form.EmailForm" />
+		<form-bean name="newsForm" type="com.vgsoftware.web.form.news.NewsForm" />
+		<form-bean name="commentForm" type="com.vgsoftware.web.form.news.CommentForm" />
+		<form-bean name="messageForm" type="com.vgsoftware.web.form.pm.MessageForm" />
+		<form-bean name="deleteForm" type="com.vgsoftware.web.form.pm.DeleteForm" />
+		<form-bean name="serviceForm" type="com.vgsoftware.web.form.ServiceForm" />
+		<form-bean name="seasonForm" type="com.vgsoftware.web.form.gt4.SeasonForm" />
+		<form-bean name="eventForm" type="com.vgsoftware.web.form.gt4.EventForm" />
+		<form-bean name="timeForm" type="com.vgsoftware.web.form.gt4.TimeForm"/>
+		<form-bean name="addVideoForm" type="com.vgsoftware.web.form.f1video.AddVideoForm"/>
+	</form-beans>
+
+	<global-forwards>
+		<forward name="info" path="/WEB-INF/template/global/info.html" redirect="false"  />
+		<forward name="login" path="/member/login.html" redirect="false"  />
+		<forward name="index" path="/index.htm" redirect="false" />
+	</global-forwards>
+
+	<action-mappings>
+		<!-- GT4 -->
+		<action path="/section/gt4/DeleteTime" type="com.vgsoftware.web.action.gt4.DeleteTimeAction">
+			<forward name="success" path="/section/gt4/Times.do" redirect="false"/>
+		</action>
+		<action path="/section/gt4/Seasons" type="com.vgsoftware.web.action.gt4.SeasonAction">
+			<forward name="success" path="/WEB-INF/template/gt4/Season.html" redirect="false" />
+		</action>
+		<action path="/section/gt4/Events" type="com.vgsoftware.web.action.gt4.EventsAction">
+			<forward name="success" path="/WEB-INF/template/gt4/Events.html" redirect="false" />
+			<forward name="failure" path="/section/gt4/Seasons.do" redirect="false"/>
+		</action>
+		<action path="/section/gt4/Event" type="com.vgsoftware.web.action.gt4.EventAction">
+			<forward name="success" path="/WEB-INF/template/gt4/Event.html" redirect="false" />
+			<forward name="failure" path="/section/gt4/Events.do" redirect="false"/>
+		</action>
+		<action path="/section/gt4/Times" type="com.vgsoftware.web.action.gt4.TimesAction">
+			<forward name="success" path="/WEB-INF/template/gt4/Times.html" redirect="false" />
+			<forward name="failure" path="/section/gt4/Event.do" redirect="false"/>
+		</action>
+		<action path="/section/gt4/ShowAddTime" type="com.vgsoftware.web.action.gt4.ShowAddTimeAction">
+			<forward name="success" path="/WEB-INF/template/gt4/AddTime.html" redirect="false" />
+		</action>
+		<action path="/section/gt4/AddTime" type="com.vgsoftware.web.action.gt4.AddTimeAction" input="/section/gt4/ShowAddTime.do" name="timeForm" validate="true">
+			<forward name="success" path="/section/gt4/Seasons.do" redirect="false" />
+			<forward name="failure" path="/section/gt4/index.html" redirect="false"/>
+		</action>
+		<action path="/section/gt4/ChampionshipTable" type="com.vgsoftware.web.action.gt4.ChampionshipTableAction">
+			<forward name="success" path="/WEB-INF/template/gt4/ChampionshipTable.html" redirect="false"/>
+			<forward name="failure" path="/section/gt4/Events.do" redirect="false"/>
+		</action>
+		<action path="/section/gt4/DriverList" type="com.vgsoftware.web.action.gt4.DriverListAction">
+			<forward name="success" path="/WEB-INF/template/gt4/DriverList.html" redirect="false"/>
+			<forward name="failure" path="/section/gt4/index.html" redirect="false"/>
+		</action>
+
+		<!-- GT4 Admin -->
+		<action path="/admin/gt4/ListSeason" type="com.vgsoftware.web.action.admin.gt4.ListSeasonAction">
+			<forward name="success" path="/WEB-INF/template/admin/gt4/ListSeason.html" redirect="false" />
+		</action>
+		<action path="/admin/gt4/AddSeason" type="com.vgsoftware.web.action.admin.gt4.AddSeasonAction" name="seasonForm" validate="true">
+			<forward name="success" path="/admin/gt4/ListSeason.do" redirect="false" />
+		</action>
+		<action path="/admin/gt4/RemoveSeason" type="com.vgsoftware.web.action.admin.gt4.RemoveSeasonAction">
+			<forward name="success" path="/admin/gt4/ListSeason.do" redirect="false" />
+		</action>
+
+		<action path="/admin/gt4/ListEvent" type="com.vgsoftware.web.action.admin.gt4.ListEventAction">
+			<forward name="success" path="/WEB-INF/template/admin/gt4/ListEvent.html" redirect="false" />
+		</action>
+		<action path="/admin/gt4/AddEvent" type="com.vgsoftware.web.action.admin.gt4.AddEventAction" name="eventForm" validate="true">
+			<forward name="success" path="/admin/gt4/ListEvent.do" redirect="false" />
+		</action>
+		<action path="/admin/gt4/RemoveEvent" type="com.vgsoftware.web.action.admin.gt4.RemoveEventAction">
+			<forward name="success" path="/admin/gt4/ListEvent.do" redirect="false" />
+		</action>
+
+		<!-- F1 Video -->
+		<action path="/section/f1video/EditVideo" type="com.vgsoftware.web.action.f1video.EditAction" name="addVideoForm" validate="false" scope="request">
+			<forward name="success" path="/section/f1video/Collection.do" redirect="false"/>
+			<forward name="failure" path="/section/f1video/PreEditVideo.do" redirect="false"/>
+		</action>
+		<action path="/section/f1video/PreEditVideo" type="com.vgsoftware.web.action.f1video.PreEditAction" scope="request">
+			<forward name="success" path="/WEB-INF/template/f1video/editvideo.html" redirect="false"/>
+		</action>
+		<action path="/section/f1video/AddVideo" type="com.vgsoftware.web.action.f1video.AddVideoAction" name="addVideoForm" validate="false" scope="request" input="/section/f1video/PreAddVideo.do">
+			<forward name="success" path="/section/f1video/PreAddVideo.do" redirect="false"/>
+		</action>
+		<action path="/section/f1video/PreAddVideo" type="com.vgsoftware.web.action.f1video.PreAddAction" scope="request">
+			<forward name="success" path="/WEB-INF/template/f1video/addvideo.html" redirect="false"/>
+		</action>
+		<action path="/section/f1video/ViewVideo" type="com.vgsoftware.web.action.f1video.ViewVideoAction" scope="request">
+			<forward name="success" path="/WEB-INF/template/f1video/viewvideo.html" redirect="false"/>
+		</action>
+		<action path="/section/f1video/Delete" type="com.vgsoftware.web.action.f1video.DeleteAction" scope="request">
+			<forward name="success" path="/section/f1video/Collection.do" redirect="false"/>
+		</action>
+		<action path="/section/f1video/Collection" type="com.vgsoftware.web.action.f1video.ViewCollectionAction" scope="request">
+			<forward name="success" path="/WEB-INF/template/f1video/collection.html" redirect="false"/>
+		</action>
+		<action path="/section/f1video/UserList" type="com.vgsoftware.web.action.f1video.UserListAction" scope="request">
+			<forward name="success" path="/WEB-INF/template/f1video/userlist.html" redirect="false"/>
+		</action>
+
+		<!-- PM -->
+		<action path="/pm/read" type="com.vgsoftware.web.action.pm.ReadAction" scope="request">
+			<forward name="success" path="/WEB-INF/template/pm/read.html" contextRelative="true" />
+			<forward name="failure" path="/pm/inbox.do" contextRelative="true" />			
+		</action>
+		<action path="/pm/send" type="com.vgsoftware.web.action.pm.SendAction" name="messageForm" scope="request" validate="true" input="/pm/write.html">
+			<forward name="success" path="/pm/inbox.do" contextRelative="true" />
+			<forward name="failure" path="/pm/write.html" contextRelative="true" />
+		</action>
+		<action path="/pm/msgdelete" type="com.vgsoftware.web.action.pm.DeleteAction" name="deleteForm" scope="request" validate="false">
+			<forward name="success" path="/pm/inbox.do" contextRelative="true" />
+			<forward name="failure" path="/index.htm" contextRelative="true" />
+		</action>
+		<action path="/pm/inbox" type="com.vgsoftware.web.action.pm.InboxAction" scope="request" validate="false">
+			<forward name="success" path="/WEB-INF/template/pm/inbox.html" contextRelative="true" />
+			<forward name="failure" path="/index.htm" contextRelative="true" />
+		</action>
+
+		<!-- news comments -->
+		<action path="/news/read" type="com.vgsoftware.web.action.news.ReadAction">
+			<forward name="success" path="/WEB-INF/template/news/read.html"/>
+		</action>
+		<action path="/news/comment/add" type="com.vgsoftware.web.action.news.AddCommentAction" name="commentForm" scope="request" validate="false">
+			<forward name="continue" path="/news/read.do"/>
+		</action>
+		<action path="/news/comment/edit" type="com.vgsoftware.web.action.news.PreEditCommentAction">
+			<forward name="success" path="/WEB-INF/template/news/editcomment.html"/>
+			<forward name="failure" path="/news/read.do"/>
+		</action>
+		<action path="/news/comment/editcomment" type="com.vgsoftware.web.action.news.EditCommentAction" name="commentForm" scope="request" validate="false">
+			<forward name="success" path="/news/read.do"/>
+			<forward name="failure" path="/news/comment/edit.do"/>
+		</action>
+		<action path="/news/comment/delete" type="com.vgsoftware.web.action.news.DeleteCommentAction">
+			<forward name="continue" path="/news/read.do"/>
+		</action>
+
+		<!-- index page -->
+		<action path="/index" type="com.vgsoftware.web.action.news.IndexAction" scope="request">
+			<forward name="success" path="/WEB-INF/template/index.html" contextRelative="true" />
+		</action>
+		<!-- admin -->
+		<action path="/admin/memberedit" type="com.vgsoftware.web.action.admin.MemberAction" scope="request">
+			<forward name="edit" path="/WEB-INF/template/admin/memberedit.html" contextRelative="true" />
+			<forward name="success" path="/admin/index.html" contextRelative="true" />
+			<forward name="failure" path="/admin/memberedit.html" contextRelative="true" />
+		</action>
+		<action path="/admin/service" type="com.vgsoftware.web.action.admin.ServiceAction" name="serviceForm" scope="request">
+			<forward name="success" path="/admin/index.html" contextRelative="true" />
+			<forward name="failure" path="/admin/addservice.html" contextRelative="true" />
+		</action>
+		<action path="/admin/addnews" type="com.vgsoftware.web.action.admin.NewsAction" name="newsForm" scope="request" input="/admin/addnews.html">
+			<forward name="success" path="/admin/index.html" contextRelative="true" />
+			<forward name="failure" path="/admin/addnews.html" contextRelative="true" />
+		</action>
+
+		<!-- Member service -->
+		<action path="/contact" type="com.vgsoftware.web.action.EmailAction" name="emailForm" scope="request" input="/contact.html">
+			<forward name="success" path="/index.htm" contextRelative="true" />
+			<forward name="failure" path="/contact.html" contextRelative="true" />
+		</action>
+		<action path="/member/settings" type="com.vgsoftware.web.action.member.SettingsAction" name="settingsForm" scope="request" input="/member/settings.html">
+			<forward name="failure" path="/member/settings.html" contextRelative="true" />
+		</action>
+		<action path="/member/logout" type="com.vgsoftware.web.action.member.LogoutAction">
+			<forward name="success" path="/index.htm" contextRelative="true" />
+		</action>
+		<action path="/member/autologin" type="com.vgsoftware.web.action.member.AutoLoginAction" />
+		<action path="/member/login" type="com.vgsoftware.web.action.member.LoginAction" name="loginForm" scope="request" input="/member/login.html">
+			<forward name="success" path="/index.htm" contextRelative="true" />
+			<forward name="failure" path="/member/login.html" contextRelative="true" />
+		</action>
+		<action path="/member/sendpwd" type="com.vgsoftware.web.action.member.RecoverPasswordAction" name="recoverPasswordForm" scope="request" validate="true" input="/member/sendpwd.html">
+			<forward name="failure" path="/member/sendpwd.html" contextRelative="true" />
+		</action>
+		<action path="/member/register" type="com.vgsoftware.web.action.member.RegisterAction" validate="true" name="registerForm" scope="request" input="/member/register.html">
+			<forward name="failure" path="/member/register.html" contextRelative="true" />
+		</action>
+	</action-mappings>
+	<message-resources parameter="resources.ApplicationResources" />
+</struts-config>

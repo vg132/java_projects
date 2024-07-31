@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+  <cron>
+    <url>/polisenNotifier?key=rgvVgRIaEOuUlMXo8dV2ataF0ruxqRT7EuxijCbND7DenRaqfa6072HaIPsEEBLL</url>
+    <description>Call notifier every 10 minutes</description>
+    <schedule>every 10 minutes</schedule>
+  </cron>
+  <cron>
+    <url>/lybeckNotifier?key=rgvVgRIaEOuUlMXo8dV2ataF0ruxqRT7EuxijCbND7DenRaqfa6072HaIPsEEBLL</url>
+    <description>Call notifier every 60 minutes</description>
+    <schedule>every 60 minutes</schedule>
+  </cron>
+</cronentries>

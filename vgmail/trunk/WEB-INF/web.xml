@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+	<display-name>VG Software - vgMail</display-name>
+	<listener>
+		<listener-class>com.vgsoftware.vgmail.misc.vgMailConfig</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>com.vgsoftware.vgmail.servlet.Login</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>sample</servlet-name>
+		<servlet-class>SampleServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>send</servlet-name>
+		<servlet-class>com.vgsoftware.vgmail.servlet.Send</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>attachment</servlet-name>
+		<description>Servlet that handles upload and downloading of attachments</description>
+		<servlet-class>com.vgsoftware.vgmail.servlet.Attachment</servlet-class>
+		<init-param>
+			<param-name>attachment_popup</param-name>
+			<param-value>attachment_popup.tpl</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>pagebuilder</servlet-name>
+		<description>Build the web pages based on the templates</description>
+		<servlet-class>com.vgsoftware.vgmail.servlet.PageBuilder</servlet-class>
+		<init-param>
+			<param-name>folder</param-name>
+			<param-value>folder.tpl</param-value>
+		</init-param>
+		<init-param>
+			<param-name>folderlist</param-name>
+			<param-value>folderlist.tpl</param-value>
+		</init-param>
+		<init-param>
+			<param-name>main</param-name>
+			<param-value>main.tpl</param-value>
+		</init-param>
+		<init-param>
+			<param-name>maillist</param-name>
+			<param-value>maillist.tpl</param-value>
+		</init-param>
+		<init-param>
+			<param-name>flags</param-name>
+			<param-value>flags.tpl</param-value>
+		</init-param>
+		<init-param>
+			<param-name>browse</param-name>
+			<param-value>browse.tpl</param-value>
+		</init-param>
+		<init-param>
+			<param-name>read</param-name>
+			<param-value>read.tpl</param-value>
+		</init-param>
+		<init-param>
+			<param-name>compose</param-name>
+			<param-value>compose.tpl</param-value>
+		</init-param>
+		<init-param>
+			<param-name>header</param-name>
+			<param-value>header.tpl</param-value>
+		</init-param>
+		<init-param>
+			<param-name>folderedit</param-name>
+			<param-value>folderedit.tpl</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>invoker</servlet-name>
+		<url-pattern>/servlet/*</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<welcome-file-list>
+    	<welcome-file>index.jsp</welcome-file>
+	    <welcome-file>index.htm</welcome-file>
+    	<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+</web-app>

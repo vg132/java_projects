@@ -1,0 +1,8 @@
+MIDlet-1: VTracker,,com.vgsoftware.VTracker.VTracker
+MIDlet-Jar-Size: 4256
+MIDlet-Jar-URL: VTracker.jar
+MIDlet-Name: VTracker
+MIDlet-Vendor: VG Software
+MIDlet-Version: 1.0.0
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0

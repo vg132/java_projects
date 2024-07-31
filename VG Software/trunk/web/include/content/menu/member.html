@@ -1,0 +1,17 @@
+<div class="relatedLinks">
+#if(!$user)
+	<h3>Guest options</h3>
+	&nbsp;&nbsp;<a href="member/register.html">Register</a><br/>
+	&nbsp;&nbsp;<a href="member/login.html">Login</a><br/>
+	&nbsp;&nbsp;<a href="member/sendpwd.html">Lost Password?</a><br/>
+#else
+	<h3>Member options</h3>
+	&nbsp;&nbsp;<a href="member/logout.do">Logout</a><br/>
+	&nbsp;&nbsp;<a href="member/settings.html">Settings</a><br/>
+	&nbsp;&nbsp;<a href="pm/inbox.do">PM inbox</a><br/>
+	&nbsp;&nbsp;<a href="pm/write.html">Compose PM</a><br/>
+	#if($user.isAdmin()==true)
+		&nbsp;&nbsp;<a href="admin/index.html">Admin</a><br/>
+	#end
+#end
+</div>

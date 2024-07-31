@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - Contact</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			<h2 id="pageName">Contact</h2>
+			<div class="story">
+				<h3>Contact VG Software</h3>
+				<p>
+					To contact VG Software, please fill in the mail-form below and
+					press submit.<br/>
+					<i>All fields are mandatory. E-mail address must be active and valid</i>
+				</p>
+				<p>
+					#errorMarkup()
+					<form method="post" action="contact.do">
+						<table>
+							<tr>
+								<td>Email:</td>
+								<td><input type="text" value="#if($email)$email#elseif($user.email)$user.email#end" name="email"/></td>
+							</tr>
+							<tr>
+								<td>Subject:</td>
+								<td><input type="text" name="subject" value="$!subject"/></td>
+							</tr>
+							<tr>
+								<td valign="top">Message:</td>
+								<td><textarea name="message" rows="10" cols="40">$!message</textarea></td>
+							</tr>
+							<tr>
+								<td colspan="2" align="right"><input type="submit" value="Send"/></td>
+							</tr>
+						</table>
+					</form>
+				</p>
+			</div>
+		</div>
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/vgsoftware.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

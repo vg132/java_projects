@@ -1,0 +1,37 @@
+;This is a question pool file.
+;
+; File Format
+;
+; QUESTION_CLASS|QUESTION|[ALT[S]]|CORRECT_AWNSER
+;
+; Question class MUST extend com.vgsoftware.questions.qtype.Question
+
+com.vgsoftware.questions.qtype.YesNoQuestion|<html><body>Programmerar man i HTML?</body></html>|nej
+com.vgsoftware.questions.qtype.YesNoQuestion|<html><body>Programmerar man i Java?</body></html>|ja
+com.vgsoftware.questions.qtype.YesNoQuestion|<html><body>Är Java ett interpreterat språk?</body></html>|ja
+com.vgsoftware.questions.qtype.YesNoQuestion|<html><body>Är Java framtidens språk?</body></html>|ja
+com.vgsoftware.questions.qtype.YesNoQuestion|<html><body>Är Classpath en rolig uppfinning?</body></html>|nej
+com.vgsoftware.questions.qtype.YesNoQuestion|<html><body>Är detta program värt betyget VG?</body></html>|ja
+com.vgsoftware.questions.qtype.YesNoQuestion|<html><body>Java 2==Java 1.2?</body></html>|ja
+com.vgsoftware.questions.qtype.YesNoQuestion|<html><body>Jag kan använda windows ikon filer (.ico)<br>i mitt java program som ikoner i menyer?!</body></html>|nej
+com.vgsoftware.questions.qtype.AltQuestion|<html><body>Vad händer i denna kod?<p><%out.println("Kalle")%></body></html>|Kalle skriv ut på skärmen.|Inget om den inte ligger i en JSP sida.|Inget eftersom koden är fel.|c
+com.vgsoftware.questions.qtype.AltQuestion|<html><body>Nullpointer exception</body></html>|Exicuerings fel.|Kompilerings fel.|a
+com.vgsoftware.questions.qtype.AltQuestion|<html><body>Sun</body></html>|Företaget bakom Java|Företaget bakom C++|a
+com.vgsoftware.questions.qtype.AltQuestion|<html><body>Jakarta Tomcat</body></html>|Indonesiens flygvapens primära flygplan.|En webbserver för Java.|Kodnamnet för nästa version av flygplanet F14.|b
+com.vgsoftware.questions.qtype.AltQuestion|<html><body>Vilken version av Java ska man ladda ner om man vill skriva ett HelloWorld progam för en Windows PC.</body></html>|J2ME|J2EE|J2SE|c
+com.vgsoftware.questions.qtype.AltQuestion|<html><body>Vad är J2ME?</body></html>|Java-2-me, "kaffe till mig".|Java 2 Micro Edtion.|b
+com.vgsoftware.questions.qtype.AltQuestion|<html><body>Vem vann Brasiliens GP 1995?</body></html>|Gerhard Berger|Michael Schumacher|David Coulthard|Damon Hill|b
+com.vgsoftware.questions.qtype.MathQuestion|<html><body>5*5</body></html>|25.0
+com.vgsoftware.questions.qtype.MathQuestion|<html><body>5*(5+1)</body></html>|30.0
+com.vgsoftware.questions.qtype.MathQuestion|<html><body>84/5</body></html>|16.8
+com.vgsoftware.questions.qtype.MathQuestion|<html><body>51/2</body></html>|25.5
+com.vgsoftware.questions.qtype.MathQuestion|<html><body>5+1-9*2</body></html>|-12
+com.vgsoftware.questions.qtype.MathQuestion|<html><body>(5+8*2)+(8/4)*5</body></html>|31
+com.vgsoftware.questions.qtype.MathQuestion|<html><body>8+5</body></html>|13
+com.vgsoftware.questions.qtype.MathQuestion|<html><body>58-1+5</body></html>|62
+com.vgsoftware.questions.qtype.MathQuestion|<html><body>457*0.1</body></html>|45.7
+com.vgsoftware.questions.qtype.MathQuestion|<html><body>147*1</body></html>|147
+com.vgsoftware.questions.qtype.MathQuestion|<html><body>589*5/4</body></html>|736.25
+com.vgsoftware.questions.qtype.MathQuestion|<html><body>84*11</body></html>|924
+com.vgsoftware.questions.qtype.MathQuestion|<html><body>123-321</body></html>|-198
+com.vgsoftware.questions.qtype.MathQuestion|<html><body>10+1</body></html>|11

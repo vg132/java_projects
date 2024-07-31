@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>$text.title</title>
+        <link rel="stylesheet" href="$text.style" type="text/css" />
+    </head>
+	<body>
+		<h2 id="pageName">$text.register</h2>
+		<div class="story">
+			<h3>$text.register</h3>
+			#errorMarkup()
+			<form action="register.do" method="post">
+				<table>
+					<tr>
+						<td>$text.username:</td>
+						<td><input type="text" name="username" value="$!{username}"/></td>
+					</tr>
+					<tr>
+						<td>$text.email:</td>
+						<td><input type="text" name="email" value="$!{email}"/></td>
+					</tr>
+					<tr>
+						<td>$text.password:</td>
+						<td><input type="password" name="password"/></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="right">
+							<input type="submit" value="$text.register"/>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

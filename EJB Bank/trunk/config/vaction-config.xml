@@ -1,0 +1,60 @@
+<vaction-config>
+	<global-forwards>
+		<global-view name="login">/login.jsp</global-view>
+	</global-forwards>
+	<action-mappings>
+		<action>
+			<path>/transfer.bank</path>
+			<action-class>com.vgsoftware.bank.action.TransferAction</action-class>
+			<view name="success">/customerindex.bank</view>
+		</action>
+		<action>
+			<path>/deposit.bank</path>
+			<action-class>com.vgsoftware.bank.action.DepositAction</action-class>
+			<view name="success">/customerindex.bank</view>
+		</action>
+		<action>
+			<path>/customerindex.bank</path>
+			<action-class>com.vgsoftware.bank.action.CustomerIndexAction</action-class>
+			<view name="success">/WEB-INF/template/customer.jsp</view>
+			<view name="failure">/index.jsp</view>
+		</action>
+		<action>
+			<path>/adminindex.bank</path>
+			<action-class>com.vgsoftware.bank.action.AdminIndexAction</action-class>
+			<view name="success">/WEB-INF/template/admin.jsp</view>
+			<view name="failure">/index.jsp</view>
+		</action>
+		<action>
+			<path>/deletecustomer.bank</path>
+			<action-class>com.vgsoftware.bank.action.RemoveCustomerAction</action-class>
+			<view name="success">/adminindex.bank</view>
+		</action>
+		<action>
+			<path>/deleteaccount.bank</path>
+			<action-class>com.vgsoftware.bank.action.RemoveCustomerAccountAction</action-class>
+			<view name="success">/viewcustomer.bank</view>
+		</action>
+		<action>
+			<path>/addaccount.bank</path>
+			<action-class>com.vgsoftware.bank.action.AddCustomerAccountAction</action-class>
+			<view name="success">/viewcustomer.bank</view>
+		</action>
+		<action>
+			<path>/viewcustomer.bank</path>
+			<action-class>com.vgsoftware.bank.action.ViewCustomerAction</action-class>
+			<view name="success">/WEB-INF/template/viewcustomer.jsp</view>
+			<view name="failure">/adminindex.bank</view>
+		</action>
+		<action>
+			<path>/addcustomer.bank</path>
+			<action-class>com.vgsoftware.bank.action.AddCustomerAction</action-class>
+			<view name="success">/adminindex.bank</view>			
+		</action>
+		<action>
+			<path>/login.bank</path>
+			<action-class>com.vgsoftware.bank.action.LoginAction</action-class>
+			<view name="success">/index.jsp</view>
+		</action>
+	</action-mappings>
+</vaction-config>

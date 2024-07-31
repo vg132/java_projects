@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - Gallery</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			<h2 id="pageName">Gallery</h2>
+			<div class="story">
+				<h3>Albums</h3>
+				<table>
+					#foreach($album in $albums)
+						#if((${velocityCount}%4)==0)
+							#set $endRow=true
+							<tr>
+						#end
+							<td>
+								${album.name}
+							</td>
+						#if($endRow==true)
+							#set $endRow=false
+							</tr>
+						#end
+					#end
+				</table>
+			</div>
+		</div>
+		<!--end content -->
+		<div id="navBar"> 
+			#parse("include/content/menu/gallery.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

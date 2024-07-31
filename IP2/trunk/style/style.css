@@ -1,0 +1,72 @@
+body
+{
+	font-family:Verdana, Arial, Sans-serif;
+	color:#000000;
+	font-size:8pt;
+	background: #EBEBE4;
+}
+
+td
+{
+	color:#000000;
+	font-size:8pt;
+}
+
+th
+{
+	color:#000000;
+	font-size:10pt;
+}
+
+.head
+{
+	color:#000000;
+	font-size:14pt;
+	font-weight: normal;
+}
+
+.errorText
+{
+	color: #f7a70d;
+	font-weight: bold;
+}
+
+a
+{
+	color:#111111;
+	font-style: normal;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: #111111;
+	text-decoration: underline;
+}
+
+hr
+{
+	color: #3366aa;
+	height: 1px;
+	width: 250px;
+	text-align: left;
+}
+
+select
+{
+	font-weight:normal;
+	font-size:10px;
+	width: 125px;
+}
+
+input
+{
+	font-weight:normal;
+	font-size:10px;
+}
+
+a img
+{
+	border: 0px;
+}

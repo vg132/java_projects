@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - Admin</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			<h2 id="pageName">GT4 Admin</h2>
+			<div class="story">
+				<h3>Seasons</h3>
+				<p>
+					<ul>
+					#foreach($season in $seasons)
+						<li><a href="admin/gt4/ListEvent.do?season=${season.id}">${season.name}</a>&nbsp;<a href="admin/gt4/RemoveSeason.do?season=${season.id}">Delete</a></li>
+					#end
+					</ul>
+				</p>
+				<p>
+					<form action="admin/gt4/AddSeason.do" method="post">
+						<table>
+							<tr>
+								<td>
+									Season Name:
+								</td>
+								<td>
+									<input type="text" name="name" value="$!{name}"/>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<input type="submit" value="Add Season"/>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</p>
+			</div>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/admin.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

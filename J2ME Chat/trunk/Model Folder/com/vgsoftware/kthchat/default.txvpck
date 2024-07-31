@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<nodeSet  version="1.1">
+	<view uin="V574ng9e2jlai8anj2whh">
+		<property name="$defaultDiagram" value="true"/>
+		<property name="$metaclass" value="Package Diagram"/>
+		<reference referencedUin="jdt:e_class:src:com.vgsoftware.kthchat.CanvasSize">
+			<property name="bounds" value="520,33,89,108"/>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:com.vgsoftware.kthchat.StringTokenizer">
+			<property name="bounds" value="366,33,144,160"/>
+		</reference>
+		<reference referencedUin="design:view:::V574ng9e2jlathv-n26kf6">
+			<property name="bounds" value="26,320,101,135"/>
+		</reference>
+		<reference referencedUin="design:view:::V574ng9e2jlatjk-wegi7e">
+			<property name="bounds" value="318,320,123,70"/>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:com.vgsoftware.kthchat.ChatClient">
+			<property name="bounds" value="185,33,171,254"/>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:com.vgsoftware.kthchat.ChatArea">
+			<property name="bounds" value="26,33,149,277"/>
+		</reference>
+		<reference referencedUin="design:view:::V574ng9e2jlatif-uhfpmb">
+			<property name="bounds" value="236,320,72,83"/>
+		</reference>
+	</view>
+</nodeSet>

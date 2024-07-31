@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<title>VG Software - F1 Video</title>
+		<base href="$text.baseurl"/>
+		<script type="text/javascript" src="$text.vgscript"></script>
+		<link rel="stylesheet" href="$text.basestyle" type="text/css"/>
+	</head>
+	<body>
+		#parse("include/content/header.html")
+		<!-- end masthead -->
+		<div id="content">
+			<h2 id="pageName">F1 Video - #if(${video.title})${video.title}#else ${video.country} ${video.track} ${video.year}#end</h2>
+			<div class="story">
+				<h3>Video Information</h3>
+				<br/>
+				<table>
+					#if(${video.title})
+					<tr>
+						<td>Title:</td>
+						<td>${video.title}</td>
+					</tr>
+					#else
+					<tr>
+						<td>Country:</td>
+						<td>${video.country}</td>
+					</tr>
+					<tr>
+						<td>Track:</td>
+						<td>${video.track}</td>
+					</tr>
+					<tr>
+						<td>Date:</td>
+						<td>${video.year}-${video.month}-${video.day}</td>
+					</tr>
+					<tr>
+						<td>Laps:</td>
+						<td>${video.laps}</td>
+					</tr>
+					#end
+					<tr>
+						<td>Channel:</td>
+						<td>${video.channel}</td>
+					</tr>
+					<tr>
+						<td>Language:</td>
+						<td>${video.language}</td>
+					</tr>
+					<tr>
+						<td>Media:</td>
+						<td>${video.media}</td>
+					</tr>
+					#if(${video.filesize}>0)
+					<tr>
+						<td>File Size (Mb):</td>
+						<td>${video.filesize}</td>
+					</tr>
+					#end
+					<tr>
+						<td>Quality:</td>
+						<td>${video.quality}</td>
+					</tr>
+					<tr>
+						<td>Video id:</td>
+						<td>${video.videoid}</td>
+					</tr>
+					<tr>
+						<td>Added:</td>
+						<td>${video.textTime}</td>
+					</tr>
+					<tr>
+						<td valign="top">Comment:</td>
+						<td>${video.htmlComment}</td>
+					</tr>
+				</table>
+			</div>
+			<p>
+				&nbsp;
+			</p>
+		</div> 
+		<!--end content --> 
+		<div id="navBar"> 
+			#parse("include/content/menu/f1video.html")
+			#parse("include/content/menu/member.html") 
+		</div>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cv>
+	<contact>
+		<name>Viktor Gars</name>
+		<address>Dellvägen 45</address>
+		<postcode>133 00</postcode>
+		<country>Sweden</country>
+		<phone name="home">08-541236</phone>
+		<phone name="mobile">010-1231245</phone>
+	</contact>
+	<educations>
+		<education start="2002" end="2005">DSV</education>
+	</educations>
+	<language-skills>
+		<language level="modersmål">Svenska</language>
+		<language level="mycket god">Engelska</language>
+	</language-skills>
+	<references>
+		<reference>
+			<company>VG Software</company>
+			<name>Kalle Anksson</name>
+			<position>VD</position>
+			<address>Dalvägen 54</address>
+			<postcode>84412</postcode>
+			<country>Sweden</country>
+			<phone name="office">08-88552211</phone>
+		</reference>
+	</references>
+</cv>
